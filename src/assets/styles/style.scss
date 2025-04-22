@@ -1,0 +1,150 @@
+@import '@/assets/styles/fonts';
+
+:root {
+ font-size: 16px;
+}
+
+
+body {
+  position: relative;
+  padding: 0;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'AbarLowFaNum' !important;
+  -moz-font-feature-settings: "ss02";
+  -webkit-font-feature-settings: "ss02";
+  font-feature-settings: "ss02";
+  outline: none;
+
+  &::-webkit-scrollbar{
+    background-color: #dadada;
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 20px;
+    &:hover {
+      cursor: grab;
+    }
+  }
+}
+
+.arial-font {
+  font-family: 'Arial' !important;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+input, textarea {
+  font-size: 0.875rem !important;
+  &::placeholder {
+    letter-spacing: 0;
+    font-weight: normal;
+    font-size: 0.875rem;
+  }
+
+  &:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+    position: relative;
+    right: 0.875rem;
+    padding-right: 0.5rem !important;
+   }
+}
+
+.MuiInputLabel-root {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  background-color: white !important;
+}
+
+legend {}
+
+.text-action {
+  color: #3200D9;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small-button {
+  width: fit-content;
+  border-radius: 0.75rem;
+  border: 1px solid #1B008614;
+  gap: 0.5rem;
+  padding: 0.2rem 0.875rem;
+  cursor: pointer;
+  min-width: 100px;
+  text-align: center;
+}
+
+.transform-switch {
+   rotate: 180deg;
+}
+
+.zoomInEffect {
+  animation: zoomInEffect ease 0.7s;
+}
+
+@keyframes zoomInEffect {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+[class*='mainOnBoarding'] .slick-slider {
+  flex-grow: 0.6;
+
+  @media(max-width: 32rem) {
+    flex-grow: 0.75;
+  }
+
+}
+
+[class*='mainOnBoarding'] .slick-dots .slick-active  {
+  line-height: 0;
+  height: 0.65rem;
+  width: 1.75rem;
+  margin-right: 0.65rem;
+
+  button {
+    width: 100%;
+    border-radius: 0.25rem;
+  }
+}
+
+[class*='mainOnBoarding'] .slick-dots li {
+  margin-left: 0.125rem;
+  margin-right: 0.125rem;
+}
+[class*='mainOnBoarding'] .slick-dots li button {
+  background-color: #abb9b6;
+  font-size: 0;
+  border-radius: 100%;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+[class*='mainOnBoarding'] .slick-dots li button:before {
+  display: none;
+}
+[class*='mainOnBoarding'] .slick-dots li.slick-active button {
+  background-color: #2283AD;
+}
