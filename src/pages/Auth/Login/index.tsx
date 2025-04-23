@@ -25,6 +25,7 @@ const Login = () => {
   const [type, setType] = useState<typeTextField>('password');
 
   const onSubmit = () => {
+    dispatch(setToken({ token: 'sdf', userId: 'sdg' }));
     setLoading(true);
     const body = {
       method: 'username',
