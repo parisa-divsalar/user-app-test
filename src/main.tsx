@@ -13,9 +13,12 @@ import '@/assets/styles/slick.css';
 import '@/assets/styles/style.scss';
 import '@/config/configAxios.ts';
 import Loading from '@/components/Loading';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+const queryClient = new QueryClient()
 
 const Root = () => {
   return (
+    <QueryClientProvider client={queryClient}>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <MuiThemeProvider>
@@ -29,6 +32,7 @@ const Root = () => {
         </MuiThemeProvider>
       </PersistGate>
     </Provider>
+    </QueryClientProvider>
   );
 };
 

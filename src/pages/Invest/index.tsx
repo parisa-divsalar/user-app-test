@@ -10,23 +10,26 @@ import { IInvest } from '@/type/invest.ts';
 import useStyles from '@/pages/Invest/useStyles.ts';
 import InvestInfoDrawer from '@/pages/Invest/Info';
 import { useState } from 'react';
+import { useAllUsersAssets } from '@/services/users-assets/all-users-assets.controller';
+import { useGetAllUserOrders } from '@/services/orders/get-all-user-orders.controller';
 
 const Invest = () => {
   const classes = useStyles();
   const navigate = useNavigate();
-  const investList = useSelector(investSelector);
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
   const [selectInvest, setSelectInvest] = useState<IInvest | undefined>(undefined);
+  const {data:userOrders}=useGetAllUserOrders();
+const {body:userOrderList}={...userOrders?.data}
 
-  if (investList.length === 0) return <InvestNotFound />;
-
+  if (!userOrderList) return <InvestNotFound />;
+console.log(userOrderList)
   return (
     <Stack className={classes.mainContainer}>
       <Stack className={classes.content}>
-        {investList.map((invest: IInvest) => (
+        {userOrderList.map((item) => (
           <InvestCard
-            key={invest.id}
-            invest={invest}
+            key={item.asset_id}
+            invest={item}
             setSelectInvest={setSelectInvest}
             setOpenDrawer={setOpenDrawer}
           />

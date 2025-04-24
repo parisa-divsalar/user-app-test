@@ -13,9 +13,10 @@ import {
 } from '@/constants/translate.ts';
 import { useSelector } from 'react-redux';
 import { themeSelector } from '@/store/common/commonSelector.ts';
+import { Order } from '@/type/user-order';
 
 interface InvestCardProps {
-  invest: IInvest;
+  invest: Order;
   setSelectInvest: (invest: IInvest) => void;
   setOpenDrawer: (openDrawer: boolean) => void;
 }
@@ -23,9 +24,20 @@ interface InvestCardProps {
 const InvestCard: FunctionComponent<InvestCardProps> = (props) => {
   const classes = useStyles();
   const { invest, setSelectInvest, setOpenDrawer } = props;
-  const { amount, investType, orderType, numberOfUnits, status, date } = invest;
+  const { 
+    asset_id,
+    asset_isin,
+    available_budget,
+    available_units,
+    created_at,
+    created_at_unix,
+    final_price,final_volume,
+    order_id,
+    side,
+    state 
+  } = invest;
   const theme = useSelector(themeSelector);
-
+const orderType=side==='buy';
   return (
     <CardActionArea
       className={classes.cardActionArea}
@@ -40,7 +52,7 @@ const InvestCard: FunctionComponent<InvestCardProps> = (props) => {
             <Stack
               className={classes.circleArrowContainer}
               bgcolor={
-                orderType === OrderType.BUY
+             orderType
                   ? theme === 'dark'
                     ? 'success.dark'
                     : 'success.light'
@@ -49,7 +61,7 @@ const InvestCard: FunctionComponent<InvestCardProps> = (props) => {
                     : 'error.light'
               }
             >
-              {orderType === OrderType.BUY ? (
+              {orderType ? (
                 <ArrowUpwardRoundedIcon color='success' fontSize='small' />
               ) : (
                 <ArrowDownwardRounded color='error' fontSize='small' />
@@ -57,7 +69,7 @@ const InvestCard: FunctionComponent<InvestCardProps> = (props) => {
             </Stack>
             <Typography variant='subtitle1' fontWeight='normal'>
               {'سفارش '}
-              {orderType === OrderType.BUY ? 'خرید ' : 'فروش '}
+              {side === 'buy' ? 'خرید ' : 'فروش '}
               {translateInvestType(investType)}
             </Typography>
           </Stack>
