@@ -20,9 +20,9 @@ const Invest = () => {
   const [selectInvest, setSelectInvest] = useState<IInvest | undefined>(undefined);
   const {data:userOrders}=useGetAllUserOrders();
 const {body:userOrderList}={...userOrders?.data}
-
+const {data}=useAllUsersAssets()
   if (!userOrderList) return <InvestNotFound />;
-console.log(userOrderList)
+
   return (
     <Stack className={classes.mainContainer}>
       <Stack className={classes.content}>

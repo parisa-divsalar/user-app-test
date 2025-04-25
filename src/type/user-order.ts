@@ -32,5 +32,8 @@ export type OrderResponseResponse = {
   side: "buy"|"sell", 
     asset_id: string,
     asset_isin: string,
-    budget_in_rials:number
+    budget_in_rials?:number,
+    volume?:number
  };
+
+ 
