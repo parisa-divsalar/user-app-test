@@ -1,6 +1,5 @@
 import { Stack, Typography } from '@mui/material';
 import CustomButton from '@/components/UI/CustomButton';
-
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -15,6 +14,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { generateFakeUUIDv4 } from '@/utils/generateUUID.ts';
 import InvestResultDrawer from '@/pages/Invest/Add/Result';
 import { commafy } from '@/utils/commafyHelper.ts';
+import { useForm, SubmitHandler, Controller } from "react-hook-form"
+import { CreateOrderData } from '@/type/user-order';
+import { register } from 'module';
 
 const AddInvest = () => {
   const classes = useStyles();
@@ -28,8 +30,6 @@ const AddInvest = () => {
   const [numberOfUnits, setNumberOfUnits] = useState<string>('');
   const [notEnoughWallet] = useState<boolean>(false);
   const investState: any = state?.invest;
-
-  console.log('investState', investState);
 
   const handleChangeOrder = (event: any) => setOrderType(event.target.value);
   const handleChangeInvest = (event: any) => setInvestType(event.target.value);
@@ -68,8 +68,14 @@ const AddInvest = () => {
     }
   }, [investState]);
 
+const {handleSubmit,control}=useForm<CreateOrderData>();
+const onSubmitForm:SubmitHandler<CreateOrderData>= (data)=> {
+  console.log(data);
+}
+
   return (
-    <Stack className={classes.mainContainer}>
+    <form onSubmit={handleSubmit(onSubmit)}>    
+      <Stack className={classes.mainContainer}>
       <Stack className={classes.content}>
         <Typography color='text.primary' mt={1} variant='subtitle2'>
           نوع درخواست
@@ -82,12 +88,19 @@ const AddInvest = () => {
             onChange={handleChangeOrder}
             sx={{ flexWrap: 'nowrap' }}
           >
-            <FormControlLabel
-              value={OrderType.BUY}
-              control={<Radio color='secondary' />}
-              label='خرید'
-              sx={{ width: '100%' }}
-            />
+             <Controller
+            name="side"
+           control={control}
+           render={({ field }) => (
+          <FormControlLabel
+            {...field}
+            value="BUY"
+            control={<Radio color="secondary" />}
+            label="خرید"
+            sx={{ width: "100%" }}
+          />
+        )}
+      />
             <FormControlLabel
               value={OrderType.SELL}
               control={<Radio color='secondary' />}
@@ -224,6 +237,8 @@ const AddInvest = () => {
         onSubmit={() => navigate(-1)}
       />
     </Stack>
+    </form>
+
   );
 };
 

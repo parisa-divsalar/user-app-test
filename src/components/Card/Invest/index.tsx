@@ -74,7 +74,7 @@ const orderType=side==='buy';
             </Typography>
           </Stack>
           <Typography fontWeight='normal' variant='subtitle2'>
-           {available_budget ? commafy(available_budget) : '-'} {'تومان'}       
+           {available_budget ? commafy(String(available_budget)) : '-'} {'تومان'}       
                </Typography>
         </Stack>
 
