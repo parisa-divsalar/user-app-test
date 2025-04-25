@@ -17,7 +17,7 @@ import { Order } from '@/type/user-order';
 
 interface InvestCardProps {
   invest: Order;
-  setSelectInvest: (invest: IInvest) => void;
+  setSelectInvest: (invest: Order) => void;
   setOpenDrawer: (openDrawer: boolean) => void;
 }
 
@@ -70,29 +70,29 @@ const orderType=side==='buy';
             <Typography variant='subtitle1' fontWeight='normal'>
               {'سفارش '}
               {side === 'buy' ? 'خرید ' : 'فروش '}
-              {translateInvestType(investType)}
+              {/* {translateInvestType(available_budget)} */}
             </Typography>
           </Stack>
           <Typography fontWeight='normal' variant='subtitle2'>
-            {amount ? commafy(amount) : '-'} {'تومان'}
-          </Typography>
+           {available_budget ? commafy(available_budget) : '-'} {'تومان'}       
+               </Typography>
         </Stack>
 
         <Stack direction='row' justifyContent='space-between'>
           <Typography color='text.disable' variant='caption' mr={5} mt={1}>
-            {date}
+            {created_at}
           </Typography>
-          <Typography color='text.primary' variant='subtitle2'>
-            {numberOfUnits} {'واحد'}
-          </Typography>
+         { available_units &&  <Typography color='text.primary' variant='subtitle2'>
+            {available_units} {'واحد'}
+          </Typography>}
         </Stack>
 
         <Stack width='100%' alignItems='end' mt={0.5}>
-          <Stack className={classes.statusContainer} bgcolor={getStatusBgColor(status, theme)}>
-            <Typography variant='caption' color={getStatusTextColor(status)}>
-              {translateInvestStatus(status)}
+          {/* <Stack className={classes.statusContainer} bgcolor={getStatusBgColor(state, theme)}>
+            <Typography variant='caption' color={getStatusTextColor(state)}>
+              {translateInvestStatus(state)}
             </Typography>
-          </Stack>
+          </Stack> */}
         </Stack>
       </Stack>
     </CardActionArea>

@@ -1,3 +1,5 @@
+export type OrderState="created" | "pending" | "completed" | "cancelled"
+
 export  type Order = {
   order_id: string;
   asset_id: string;
@@ -18,7 +20,7 @@ export type Meta = {
   total: number;
 };
 
-export type OrderResponseResponse = {
+export type OrderResponse = {
   status: "success" | "error";
   status_code: number;
   message: string;

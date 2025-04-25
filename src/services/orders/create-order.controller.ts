@@ -1,14 +1,12 @@
 import { sendRequest } from "@/apis/request"
 import { useUserInfo } from "@/hooks/useUserInfo";
-import { CreateOrderData } from "@/type/user-order";
+import { CreateOrderData as CreateOrderProps , OrderResponse as CreateOrderResponse   } from "@/type/user-order";
 import { useMutation } from "@tanstack/react-query";
-
 
 const {token,userId}= useUserInfo();
 const CREATE_ORDER_URL=`/users/${userId}/orders`;
- type CreateOrderProps=CreateOrderData;
+
  interface CreateOrderError{};
- interface CreateOrderResponse{};
 
 function  createOrderController(body:CreateOrderProps){
 return sendRequest<CreateOrderResponse,CreateOrderError,CreateOrderProps>({

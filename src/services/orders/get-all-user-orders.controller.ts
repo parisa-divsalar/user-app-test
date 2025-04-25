@@ -1,11 +1,11 @@
 import { sendRequest } from "@/apis/request";
 import { useUserInfo } from "@/hooks/useUserInfo";
-import { OrderResponseResponse } from "@/type/user-order";
+import { OrderResponse as GetAllUserOrderResponse } from "@/type/user-order";
 import { useQuery } from "@tanstack/react-query";
 
 
 interface GetAllUserOrderProps{};
-type GetAllUserOrderResponse=OrderResponseResponse;
+
 interface GetAllUserOrderError{};
 
 const {token,userId}=useUserInfo();
@@ -36,6 +36,7 @@ export function useGetAllUserOrders(){
         enabled:!!token,
     })
 }
+
 
 
 
