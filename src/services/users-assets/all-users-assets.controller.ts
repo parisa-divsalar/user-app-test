@@ -1,7 +1,20 @@
 import { sendRequest } from "@/apis/request";
 import { useUserInfo } from "@/hooks/useUserInfo";
 import {useQuery} from '@tanstack/react-query';
-
+interface Asset {
+  asset_id: string;
+  title: string;
+  description: string;
+  image_url: string;
+  isin: string;
+  persian_name: string;
+  english_name: string;
+  instrument_id: string;
+  buy_side_fee_in_percent: number;
+  buy_max_fee_in_rials: number;
+  sell_side_fee_in_percent: number;
+  sell_max_fee_in_rials: number;
+}
 
 export interface GetAllUserAssetsError{};
 export interface GetAllUserAssetsProps{};
@@ -15,7 +28,7 @@ export interface GetAllUserAssetsResponse{
     page_num: number;
     total: number;
   };
-  body:  null;
+  body: Asset[];
 };
 
 const {token,userId}=useUserInfo();
@@ -29,7 +42,7 @@ return sendRequest<GetAllUserAssetsResponse,GetAllUserAssetsError,GetAllUserAsse
     url:GET_ALL_USER_ASSET_URL,
     params:{
         page:1,
-        limit:30
+        limit:50
     },
   config:{
     headers:{

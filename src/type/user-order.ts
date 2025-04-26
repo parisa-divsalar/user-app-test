@@ -5,7 +5,7 @@ export  type Order = {
   asset_id: string;
   asset_isin: string;
   side: "buy" | "sell";
-  state: "created" | "pending" | "completed" | "cancelled" ;
+  state: 'created' | 'failed' | 'pending' | 'cancelling'|'cancelled'|'done';
   final_volume: number | null;
   final_price: number | null;
   available_budget: number;
@@ -35,7 +35,7 @@ export type OrderResponse = {
     asset_id: string,
     asset_isin: string,
     budget_in_rials:number,
-    volume:number
+    // volume?:number
  };
 
  

@@ -18,6 +18,8 @@ const userSlice = createSlice({
       const { token, userId } = action.payload;
       state.token = token;
       state.userId = userId;
+      localStorage.setItem('token',token);
+      localStorage.setItem('user_id',userId);
     },
     updateToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;

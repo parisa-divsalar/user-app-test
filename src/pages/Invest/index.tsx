@@ -1,32 +1,29 @@
 import { Stack } from '@mui/material';
 import CustomButton from '@/components/UI/CustomButton';
-import { useSelector } from 'react-redux';
-import { investSelector } from '@/store/user/userSelecor.ts';
+
 import InvestNotFound from '@/pages/Invest/NotFound';
 import { PrivateRoutes } from '@/config/routes.ts';
 import { useNavigate } from 'react-router-dom';
 import InvestCard from '@/components/Card/Invest';
-import { IInvest } from '@/type/invest.ts';
 import useStyles from '@/pages/Invest/useStyles.ts';
-import InvestInfoDrawer from '@/pages/Invest/Info';
 import { useState } from 'react';
 import { useGetAllUserOrders } from '@/services/orders/get-all-user-orders.controller';
-import { useAllUsersAssets } from '@/services/users-assets/all-users-assets.controller';
 import { Order } from '@/type/user-order';
+import InvestInfoDrawer from './Info';
 
 const Invest = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
-  const [selectInvest, setSelectInvest] = useState<Order | undefined>(undefined);
+  const [selectInvest, setSelectInvest] = useState<Order>();
   const {data:userOrders}=useGetAllUserOrders();
 const {body:userOrderList}={...userOrders?.data};
 
-// TODO:Fix test environment
-
+const [getAssetId,setGetAssetId]=useState<number>(0);
 
 
 if (!userOrderList) return <InvestNotFound />;
+const filteredById=userOrderList.find(item=>item.created_at_unix===getAssetId);
 
   return (
     <Stack className={classes.mainContainer}>
@@ -37,6 +34,7 @@ if (!userOrderList) return <InvestNotFound />;
             invest={item}
             setSelectInvest={setSelectInvest}
             setOpenDrawer={setOpenDrawer}
+            setGetAssetId={setGetAssetId}
           />
         ))}
       </Stack>
@@ -47,11 +45,13 @@ if (!userOrderList) return <InvestNotFound />;
         </CustomButton>
       </Stack>
 
-      {/* <InvestInfoDrawer
-        openDrawer={openDrawer}
-        closeDrawer={() => setOpenDrawer(false)}
-        invest={selectInvest}
-      /> */}
+   {filteredById && (
+  <InvestInfoDrawer
+    openDrawer={openDrawer}
+    closeDrawer={() => setOpenDrawer(false)}
+    invest={filteredById}
+  />
+)}
     </Stack>
   );
 };

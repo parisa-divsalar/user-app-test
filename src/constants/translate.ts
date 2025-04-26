@@ -3,16 +3,16 @@ import { Theme } from '@/store/common/commonSlice.ts';
 
 export function translateInvestStatus(status: InvestStatus) {
   switch (status) {
-    case 'WAITING_TO_BUY':
-      return 'در انتظار خرید';
-    case 'WAITING_TO_SELL':
-      return 'در انتظار فروش';
-    case 'SOLD':
-      return 'فروخته شده';
-    case 'PURCHASED':
-      return 'خریداری شده';
-    default:
-      return '';
+    case 'created':
+      return 'ایجاد شده';
+    case 'failed':
+      return 'ناموفق';
+    case 'pending':
+      return 'در حال بررسی';
+    case 'cancelling':
+      return  'لغو شده';
+    case 'done':
+    return 'انجام شده'
   }
 }
 
@@ -31,10 +31,11 @@ export function translateInvestType(investType: InvestType) {
 
 export function getStatusBgColor(status: InvestStatus, theme: Theme) {
   switch (status) {
-    case 'WAITING_TO_BUY':
-    case 'WAITING_TO_SELL':
+    case 'done':
       return theme === 'dark' ? 'warning.dark' : 'warning.light';
-    case 'SOLD':
+    case 'cancelled' :
+      return theme === 'dark' ? 'error.dark' : 'error.light';
+       case 'failed' :
       return theme === 'dark' ? 'error.dark' : 'error.light';
     default:
       return theme === 'dark' ? 'success.dark' : 'success.light';
@@ -43,10 +44,10 @@ export function getStatusBgColor(status: InvestStatus, theme: Theme) {
 
 export function getStatusTextColor(status: InvestStatus) {
   switch (status) {
-    case 'WAITING_TO_BUY':
-    case 'WAITING_TO_SELL':
+    case 'pending':
       return 'warning.main';
-    case 'SOLD':
+    case 'cancelled':
+      case 'failed' :
       return 'error.main';
     default:
       return 'success.main';

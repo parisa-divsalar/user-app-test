@@ -1,0 +1,62 @@
+import { sendRequest } from "@/apis/request";
+import { useUserInfo } from "@/hooks/useUserInfo";
+import { useQuery } from "@tanstack/react-query";
+const GET_ALL_ASSET_URL='/assets';
+
+const {token}=useUserInfo();
+interface Asset {
+  asset_id: string;
+  title: string;
+  description: string;
+  image_url: string;
+  isin: string;
+  persian_name: string;
+  english_name: string;
+  instrument_id: string;
+  buy_side_fee_in_percent: number;
+  buy_max_fee_in_rials: number;
+  sell_side_fee_in_percent: number;
+  sell_max_fee_in_rials: number;
+}
+interface GetAllAssetsResponse{
+      status: string;
+  status_code: number;
+  message: string;
+  has_error: boolean;
+  meta: {
+    page_size: number;
+    page_num: number;
+    total: number;
+  };
+  body: Asset[];
+};
+
+interface GetAllAssetError{};
+interface GetAllAssetProps{};
+
+
+function getAllAssetsController(){
+    return sendRequest<GetAllAssetsResponse,GetAllAssetError,GetAllAssetProps>({
+        url:GET_ALL_ASSET_URL,
+        method:'get',
+        params:{page:1,limit:50},
+         config:{
+            headers:{
+                Authorization:token
+            }
+         }
+
+    });
+};
+
+getAllAssetsController.keyGen=()=>['get-all-assets'];
+
+
+export function useGetAllAssets(){
+    return useQuery({
+        queryKey:getAllAssetsController.keyGen(),
+        queryFn:getAllAssetsController,
+        enabled:!!token,
+    });
+}
+

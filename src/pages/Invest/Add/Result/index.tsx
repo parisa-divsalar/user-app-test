@@ -5,7 +5,6 @@ import { Stack, Typography } from '@mui/material';
 import CustomButton from '@/components/UI/CustomButton';
 import successIcon from '@/assets/images/icon/success.svg';
 import errorIcon from '@/assets/images/icon/error.svg';
-import { OrderType } from '@/type/invest.ts';
 
 const useStyles = makeStyles(() => ({
   paper: {
@@ -29,7 +28,7 @@ interface InvestResultDrawerProps {
   openDrawer: boolean;
   closeDrawer: () => void;
   error: boolean;
-  orderType: OrderType;
+  orderType: 'buy'|'sell';
   onSubmit?: () => void;
 }
 
@@ -53,10 +52,10 @@ const InvestResultDrawer: FunctionComponent<InvestResultDrawerProps> = (props) =
 
         <Typography color='text.secondary' variant='subtitle2' mt={2} textAlign='center' px={4}>
           {error
-            ? orderType === OrderType.BUY
+            ? orderType === 'buy'
               ? 'سفارش خرید شما انجام نشد، دوباره اقدام کنید.'
               : 'سفارش فروش شما انجام نشد، دوباره اقدام کنید.'
-            : orderType === OrderType.SELL
+            : orderType === 'sell'
               ? 'سفارش فروش با موفقیت انجام شد'
               : 'سفارش خرید با موفقیت انجام شد.'}
         </Typography>

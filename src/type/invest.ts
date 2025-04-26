@@ -1,7 +1,7 @@
 export interface IInvest {
   id: string;
   date: string;
-  orderType: OrderType;
+  orderType: 'buy'|'sell';
   investType: InvestType;
   status: InvestStatus;
   amount: string;
@@ -20,4 +20,4 @@ export enum InvestType {
   'SAVINGS' = 'SAVINGS',
 }
 
-export type InvestStatus = 'WAITING_TO_BUY' | 'WAITING_TO_SELL' | 'SOLD' | 'PURCHASED';
+export type InvestStatus = 'created' | 'failed' | 'pending' | 'cancelling'|'cancelled'|'done';

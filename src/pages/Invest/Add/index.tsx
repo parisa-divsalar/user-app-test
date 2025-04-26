@@ -1,5 +1,6 @@
 import { Stack, Typography } from '@mui/material';
 import CustomButton from '@/components/UI/CustomButton';
+
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -14,33 +15,38 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { generateFakeUUIDv4 } from '@/utils/generateUUID.ts';
 import InvestResultDrawer from '@/pages/Invest/Add/Result';
 import { commafy } from '@/utils/commafyHelper.ts';
-import { useForm, SubmitHandler, Controller } from "react-hook-form"
 import { CreateOrderData } from '@/type/user-order';
-import { register } from 'module';
+import { useCreateOrder } from '@/services/orders/create-order.controller';
+
+import { useGetAllAssets } from '@/services/assets/get-all-assets.controller';
 
 const AddInvest = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { state } = useLocation();
   const navigate = useNavigate();
-  const [orderType, setOrderType] = useState<OrderType>(OrderType.BUY);
+  const [orderType, setOrderType] = useState<'buy'|'sell'>('buy');
   const [investType, setInvestType] = useState<InvestType>(InvestType.GOLD);
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
   const [amount, setAmount] = useState<string>('');
+const [anotherState, setAnotherState] = useState<string>('');
   const [numberOfUnits, setNumberOfUnits] = useState<string>('');
   const [notEnoughWallet] = useState<boolean>(false);
   const investState: any = state?.invest;
-
+const [assetId,setAssetId]=useState('');
+const {mutate}=useCreateOrder();
+const {data:getAllAssets}=useGetAllAssets();
+const {body:allAssets}={...getAllAssets?.data};
   const handleChangeOrder = (event: any) => setOrderType(event.target.value);
   const handleChangeInvest = (event: any) => setInvestType(event.target.value);
 
-  const handleChangeAmount = (value: string) => {
-    const rawValue = value?.replace(/,/g, '');
-    if (!/^\d*$/.test(rawValue)) return;
-
-    const formattedValue = Number(rawValue).toLocaleString('en-US');
-    setAmount(formattedValue);
-  };
+ const handleChangeAmount = (value: string) => {
+  const rawValue = value?.replace(/,/g, '');
+  if (!/^\d*$/.test(rawValue)) return;
+  const formattedValue = Number(rawValue).toLocaleString('en-US');
+  setAmount(formattedValue);
+  setAnotherState(rawValue);
+};
 
   const onSubmit = () => {
     const invest: IInvest = {
@@ -50,12 +56,20 @@ const AddInvest = () => {
       orderType,
       investType,
       numberOfUnits,
-      status: 'WAITING_TO_BUY',
+      status: state,
     };
 
     if (investState) dispatch(updateInvest({ id: investState.id, invest }));
-    else dispatch(addInvest(invest));
+    else dispatch(addInvest(invest)); 
+    const data:CreateOrderData={
+      asset_id:assetId??assetId,
+      side:orderType,
+      asset_isin:'IRTKZARV0001',
+      budget_in_rials:Number(anotherState)
+    };
 
+  
+   mutate(data);
     setOpenDrawer(true);
   };
 
@@ -68,14 +82,8 @@ const AddInvest = () => {
     }
   }, [investState]);
 
-const {handleSubmit,control}=useForm<CreateOrderData>();
-const onSubmitForm:SubmitHandler<CreateOrderData>= (data)=> {
-  console.log(data);
-}
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>    
-      <Stack className={classes.mainContainer}>
+    <Stack className={classes.mainContainer}>
       <Stack className={classes.content}>
         <Typography color='text.primary' mt={1} variant='subtitle2'>
           نوع درخواست
@@ -88,21 +96,16 @@ const onSubmitForm:SubmitHandler<CreateOrderData>= (data)=> {
             onChange={handleChangeOrder}
             sx={{ flexWrap: 'nowrap' }}
           >
-             <Controller
-            name="side"
-           control={control}
-           render={({ field }) => (
-          <FormControlLabel
-            {...field}
-            value="BUY"
-            control={<Radio color="secondary" />}
-            label="خرید"
-            sx={{ width: "100%" }}
-          />
-        )}
-      />
             <FormControlLabel
-              value={OrderType.SELL}
+              value={'buy'}
+            onChange={()=>setOrderType('buy')}
+              control={<Radio color='secondary' />}
+              label='خرید'
+              sx={{ width: '100%' }}
+            />
+            <FormControlLabel
+             onChange={()=>setOrderType('sell')}
+              value={'sell'}
               control={<Radio color='secondary' />}
               label='فروش'
               sx={{ width: '100%' }}
@@ -119,46 +122,26 @@ const onSubmitForm:SubmitHandler<CreateOrderData>= (data)=> {
             row
             value={investType}
             onChange={handleChangeInvest}
-            sx={{ flexWrap: 'nowrap' }}
+            sx={{ flexWrap: 'nowrap',display:'flex',alignItems:'center' }}
           >
-            <FormControlLabel
-              value={InvestType.GOLD}
-              control={<Radio color='secondary' />}
-              label='طلا'
+
+            {allAssets &&  allAssets.map((item,index)=>(<FormControlLabel key={item.asset_id+index}
+              value={item.asset_id}
+              onClick={()=>setAssetId(item.asset_id)}
+              control={<Radio color='secondary'  />}
+              label={item.title}
               sx={{ width: '100%' }}
-            />
-            <FormControlLabel
-              value={InvestType.HOUSING}
-              control={<Radio color='secondary' />}
-              label='مسکن'
-              sx={{ width: '100%' }}
-            />
+            />))}
+      
+          
           </RadioGroup>
 
-          <RadioGroup
-            row
-            value={investType}
-            onChange={handleChangeInvest}
-            sx={{ flexWrap: 'nowrap' }}
-          >
-            <FormControlLabel
-              value={InvestType.BURSE}
-              control={<Radio color='secondary' />}
-              label='بورس'
-              sx={{ width: '100%' }}
-            />
-            <FormControlLabel
-              value={InvestType.SAVINGS}
-              control={<Radio color='secondary' />}
-              label='پس انداز'
-              sx={{ width: '100%' }}
-            />
-          </RadioGroup>
+         
         </Stack>
 
-        {orderType === OrderType.BUY ? (
+        {orderType === 'buy' ? (
           <CustomInput
-            label=''
+      
             placeholder='مبلغ(تومان)'
             value={amount}
             helperText={
@@ -185,7 +168,7 @@ const onSubmitForm:SubmitHandler<CreateOrderData>= (data)=> {
         )}
 
         <Stack width='100%' alignItems='end'>
-          {orderType === OrderType.BUY ? (
+          {orderType ==='buy' ? (
             <CustomButton text='+ شارژ حساب' variant='text' color='secondary' />
           ) : (
             <Typography color='text.secondary' variant='subtitle2'>
@@ -194,14 +177,14 @@ const onSubmitForm:SubmitHandler<CreateOrderData>= (data)=> {
           )}
         </Stack>
 
-        {orderType === OrderType.SELL && numberOfUnits && (
+        {orderType === 'sell' && numberOfUnits && (
           <Stack className={classes.navBox}>
             <RowNAV label='تعداد کل موجودی' value='42' />
             <RowNAV label='مبلغ کل موجودی' value='12225000' unit='تومان' />
           </Stack>
         )}
 
-        {orderType === OrderType.SELL && numberOfUnits && (
+        {orderType === 'sell' && numberOfUnits && (
           <Stack className={classes.navBox}>
             <RowNAV label='مبلغ سفارش' value='12000000' unit='تومان' />
             <RowNAV label='نرخ NAV' value='5000' unit='تومان' />
@@ -210,7 +193,7 @@ const onSubmitForm:SubmitHandler<CreateOrderData>= (data)=> {
           </Stack>
         )}
 
-        {orderType === OrderType.BUY && amount && (
+        {orderType === 'buy' && amount && (
           <Stack className={classes.navBox}>
             <RowNAV label='نرخ NAV' value='5000' unit='تومان' />
             <RowNAV label='کارمزد' value='17000' unit='تومان' />
@@ -225,7 +208,7 @@ const onSubmitForm:SubmitHandler<CreateOrderData>= (data)=> {
           color='secondary'
           text='ثبت'
           onClick={onSubmit}
-          disabled={orderType === OrderType.BUY ? !amount : !numberOfUnits}
+          disabled={orderType === 'buy' ? !amount : !numberOfUnits}
         />
       </Stack>
 
@@ -237,8 +220,6 @@ const onSubmitForm:SubmitHandler<CreateOrderData>= (data)=> {
         onSubmit={() => navigate(-1)}
       />
     </Stack>
-    </form>
-
   );
 };
 

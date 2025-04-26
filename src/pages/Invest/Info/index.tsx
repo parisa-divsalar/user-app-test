@@ -3,18 +3,20 @@ import { makeStyles } from '@mui/styles';
 import Drawer from '@mui/material/Drawer';
 import { Stack, Typography } from '@mui/material';
 import CustomButton from '@/components/UI/CustomButton';
-import { IInvest, InvestType, OrderType } from '@/type/invest.ts';
 import InvestInfoRow from '@/pages/Invest/Add/Result/Row';
 import {
   getStatusBgColor,
   getStatusTextColor,
   translateInvestStatus,
-  translateInvestType,
+
 } from '@/constants/translate.ts';
 import { useNavigate } from 'react-router-dom';
 import { PrivateRoutes } from '@/config/routes.ts';
 import { useSelector } from 'react-redux';
 import { themeSelector } from '@/store/common/commonSelector.ts';
+import { Order } from '@/type/user-order';
+import { useCancelOrder } from '@/services/orders/cancel-user-order.controller';
+import { useQueryClient } from '@tanstack/react-query';
 
 const useStyles = makeStyles(() => ({
   paper: {
@@ -45,22 +47,25 @@ const useStyles = makeStyles(() => ({
 interface InvestResultDrawerProps {
   openDrawer: boolean;
   closeDrawer: () => void;
-  invest: IInvest | undefined;
+  invest: Order;
 }
 
 const InvestInfoDrawer: FunctionComponent<InvestResultDrawerProps> = (props) => {
   const { openDrawer, closeDrawer, invest } = props;
+
   const navigate = useNavigate();
   const {
-    status = 'WAITING_TO_BUY',
-    orderType,
-    investType = InvestType.GOLD,
-    numberOfUnits = 25,
-  } = invest || {};
+asset_id,asset_isin,state,side,available_units,order_id
+  } = invest ;
   const classes = useStyles();
+const queryClient=useQueryClient()
   const [openCancelInvest, setOpenCancelInvest] = useState<boolean>(false);
   const theme = useSelector(themeSelector);
-
+const {mutate,isSuccess}=useCancelOrder()
+  const  handleCancelOrder=(asset_id:string)=>{
+mutate(asset_id);
+if(isSuccess) queryClient.invalidateQueries({queryKey:['user-orders']});
+}
   return (
     <Drawer
       anchor='bottom'
@@ -85,20 +90,23 @@ const InvestInfoDrawer: FunctionComponent<InvestResultDrawerProps> = (props) => 
           <>
             <InvestInfoRow
               label='نوع معامله'
-              value={orderType === OrderType.BUY ? 'خرید' : 'فروش'}
+              value={side ==='buy' ? 'خرید' : 'فروش'}
             />
-            <InvestInfoRow label='نوع سرمایه گذاری' value={translateInvestType(investType)} />
-            <InvestInfoRow label='تعداد واحد' value={numberOfUnits} />
+            <InvestInfoRow label='نوع سرمایه گذاری' value={
+              // translateInvestType(investType)
+              'طلا'
+            } />
+            <InvestInfoRow label='تعداد واحد' value={available_units} />
             <InvestInfoRow label='تاریخ و ساعت ' value='۱۴۰۴/۰۴/۱۹-۱۲:۱۰' />
             <InvestInfoRow
               label='وضعیت'
               value={
                 <Stack
                   className={classes.statusContainer}
-                  bgcolor={getStatusBgColor(status, theme)}
+                  bgcolor={getStatusBgColor(state, theme)}
                 >
-                  <Typography variant='caption' color={getStatusTextColor(status)}>
-                    {translateInvestStatus(status)}
+                  <Typography variant='caption' color={getStatusTextColor(state)}>
+                    {translateInvestStatus(state)}
                   </Typography>
                 </Stack>
               }
@@ -116,6 +124,7 @@ const InvestInfoDrawer: FunctionComponent<InvestResultDrawerProps> = (props) => 
                 setTimeout(() => {
                   setOpenCancelInvest(false);
                 }, 500);
+                handleCancelOrder(order_id);
               }}
             >
               بله
