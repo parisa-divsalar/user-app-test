@@ -9,15 +9,13 @@ import { axiosAgent } from './agent';
 import { isBrowser } from '@/hooks/useIsomorphicLayoutEffect';
 
 
-interface IRequest<B, C, T> {
+interface IRequest<B, C> {
   showError?: boolean;
   method?: 'get' | 'post' | 'put' | 'patch' | 'delete';
   body?: B;
   url: string;
   config?: C;
   params?: Record<string, any>;
-
-  
 }
 
 
@@ -63,7 +61,7 @@ export const sendRequest = async <
   },
   params,
   ...props
-}: IRequest<B, AxiosRequestConfig, T>): Promise<IResult<T>> => {
+}: IRequest<B, AxiosRequestConfig>): Promise<IResult<T>> => {
   let response: AxiosResponse<IResponse<R>>;
 
   try {
