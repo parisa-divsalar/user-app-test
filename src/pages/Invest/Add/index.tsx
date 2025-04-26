@@ -4,7 +4,7 @@ import CustomButton from '@/components/UI/CustomButton';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { IInvest, InvestType, OrderType } from '@/type/invest.ts';
+import { IInvest, InvestType } from '@/type/invest.ts';
 import { useEffect, useState } from 'react';
 import CustomInput from '@/components/UI/CustomInput';
 import RowNAV from '@/pages/Invest/Add/Row';

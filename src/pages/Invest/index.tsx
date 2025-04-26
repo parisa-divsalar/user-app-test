@@ -20,7 +20,7 @@ const Invest = () => {
 const {body:userOrderList}={...userOrders?.data};
 
 const [getAssetId,setGetAssetId]=useState<number>(0);
-
+console.log(selectInvest)
 
 if (!userOrderList) return <InvestNotFound />;
 const filteredById=userOrderList.find(item=>item.created_at_unix===getAssetId);

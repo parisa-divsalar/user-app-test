@@ -16,7 +16,10 @@ interface IRequest<B, C, T> {
   url: string;
   config?: C;
   params?: Record<string, any>;
+
+  
 }
+
 
 export interface RequestErrorExceptionType<R = any> {
   success: boolean;

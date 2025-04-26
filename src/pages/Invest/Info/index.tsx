@@ -55,7 +55,7 @@ const InvestInfoDrawer: FunctionComponent<InvestResultDrawerProps> = (props) => 
 
   const navigate = useNavigate();
   const {
-asset_id,asset_isin,state,side,available_units,order_id
+state,side,available_units,order_id
   } = invest ;
   const classes = useStyles();
 const queryClient=useQueryClient()

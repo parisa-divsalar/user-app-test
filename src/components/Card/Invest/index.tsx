@@ -25,14 +25,10 @@ const InvestCard: FunctionComponent<InvestCardProps> = (props) => {
   const classes = useStyles();
   const { invest, setSelectInvest, setOpenDrawer,setGetAssetId } = props;
   const { 
-    asset_id,
-    asset_isin,
     available_budget,
     available_units,
     created_at,
     created_at_unix,
-    final_price,final_volume,
-    order_id,
     side,
     state 
   } = invest;
