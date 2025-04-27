@@ -127,9 +127,10 @@ const {body:allAssets}={...getAllAssets?.data};
 
             {allAssets &&  allAssets.map((item,index)=>(<FormControlLabel key={item.asset_id+index}
               value={item.asset_id}
+            
               onClick={()=>setAssetId(item.asset_id)}
               control={<Radio color='secondary'  />}
-              label={item.title}
+              label={item.persian_name}
               sx={{ width: '100%' }}
             />))}
       
