@@ -3,14 +3,30 @@ import { useUserInfo } from "@/hooks/useUserInfo"
 import { useQuery } from "@tanstack/react-query";
 
 
-const {token}=useUserInfo();
+
 
 
 interface GetAssetsBuyProps{};
 interface GetAssetsBuyError{};
-interface GetAssetsBuyResponse{};
+interface GetAssetsBuyResponse{
+      status: "success" | "error";
+  status_code: number;
+  message: string;
+  has_error: boolean;
+  meta: {
+    page_size: number;
+    page_num: number;
+    total: number;
+  };
+  body: {
+    nav: number;
+    last_price: number;
+    fee: number;
+    units_might_bought: number;
+  };
+}
 
-function getAssetsBuyController(asset_id:string){
+function getAssetsBuyController(asset_id:string,token:string){
 return sendRequest<GetAssetsBuyResponse,GetAssetsBuyError,GetAssetsBuyProps>({
     url:`/assets/${asset_id}/buy_info`,
     method:'get',
@@ -27,9 +43,10 @@ return sendRequest<GetAssetsBuyResponse,GetAssetsBuyError,GetAssetsBuyProps>({
 getAssetsBuyController.keyGen=()=>['assets-buy'];
 
 export function useAssetsBuy(asset_id:string){
+    const {token}=useUserInfo();
     return useQuery({
         queryKey:getAssetsBuyController.keyGen(),
-        queryFn:()=>getAssetsBuyController(asset_id),
+        queryFn:()=>getAssetsBuyController(asset_id,token),
         enabled:!!token,
     });
 };

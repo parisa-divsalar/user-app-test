@@ -8,7 +8,24 @@ import { useQuery } from "@tanstack/react-query";
 
 interface GetAssetsSellProps{};
 interface GetAssetsSellError{};
-interface GetAssetsSellResponse{};
+interface GetAssetsSellResponse{
+  status: "success" | "error";
+  status_code: number;
+  message: string;
+  has_error: boolean;
+  meta: {
+    page_size: number;
+    page_num: number;
+    total: number;
+  };
+  body: {
+    nav: number;
+    last_price: number;
+    fee: number;
+    net_income: number;
+    gross_income: number;
+  };
+};;
 
 
 function getAssetSellController(asset_id:string,token:string){

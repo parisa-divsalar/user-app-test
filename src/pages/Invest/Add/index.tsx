@@ -19,6 +19,8 @@ import { CreateOrderData } from '@/type/user-order';
 import { useCreateOrder } from '@/services/orders/create-order.controller';
 
 import { useGetAllAssets } from '@/services/assets/get-all-assets.controller';
+import { useAssetsBuy } from '@/services/assets/get-assets-buy.controller';
+import { useAssetsSell } from '@/services/assets/get-assets-sell.controller';
 
 const AddInvest = () => {
   const classes = useStyles();
@@ -33,9 +35,15 @@ const [anotherState, setAnotherState] = useState<string>('');
   const [numberOfUnits, setNumberOfUnits] = useState<string>('');
   const [notEnoughWallet] = useState<boolean>(false);
   const investState: any = state?.invest;
-const [assetId,setAssetId]=useState('');
+
 const {mutate}=useCreateOrder();
 const {data:getAllAssets}=useGetAllAssets();
+const [assetId,setAssetId]=useState<string>(getAllAssets?.data?.body[0].asset_id? getAllAssets?.data?.body[0].asset_id:'');
+const {data:assetBuyData}=useAssetsBuy(assetId);
+const {data:assetData}=useAssetsSell(assetId);
+const {body:assetSell}={...assetData?.data}
+const {body:assetBuyValue}={...assetBuyData?.data}
+
 const {body:allAssets}={...getAllAssets?.data};
   const handleChangeOrder = (event: any) => setOrderType(event.target.value);
   const handleChangeInvest = (event: any) => setInvestType(event.target.value);
@@ -96,7 +104,7 @@ const {body:allAssets}={...getAllAssets?.data};
             onChange={handleChangeOrder}
             sx={{ flexWrap: 'nowrap' }}
           >
-            <FormControlLabel
+            <FormControlLabel 
               value={'buy'}
             onChange={()=>setOrderType('buy')}
               control={<Radio color='secondary' />}
@@ -127,17 +135,12 @@ const {body:allAssets}={...getAllAssets?.data};
 
             {allAssets &&  allAssets.map((item,index)=>(<FormControlLabel key={item.asset_id+index}
               value={item.asset_id}
-            
-              onClick={()=>setAssetId(item.asset_id)}
+              onChange={()=>setAssetId(item.asset_id)}
               control={<Radio color='secondary'  />}
               label={item.persian_name}
               sx={{ width: '100%' }}
             />))}
-      
-          
           </RadioGroup>
-
-         
         </Stack>
 
         {orderType === 'buy' ? (
@@ -187,18 +190,18 @@ const {body:allAssets}={...getAllAssets?.data};
 
         {orderType === 'sell' && numberOfUnits && (
           <Stack className={classes.navBox}>
-            <RowNAV label='مبلغ سفارش' value='12000000' unit='تومان' />
-            <RowNAV label='نرخ NAV' value='5000' unit='تومان' />
-            <RowNAV label='کارمزد' value='17000' unit='تومان' />
-            <RowNAV label='مبلغ قابل برداشت' value='12225000' unit='تومان' />
+            <RowNAV label='مبلغ سفارش' value={String(assetSell?.net_income)} unit='تومان' />
+            <RowNAV label='نرخ NAV' value={String(assetSell?.nav)} unit='تومان' />
+            <RowNAV label='کارمزد' value={String(assetSell?.fee)} unit='تومان' />
+            <RowNAV label='مبلغ قابل برداشت' value={String(assetSell?.gross_income)} unit='تومان' />
           </Stack>
         )}
 
         {orderType === 'buy' && amount && (
           <Stack className={classes.navBox}>
-            <RowNAV label='نرخ NAV' value='5000' unit='تومان' />
-            <RowNAV label='کارمزد' value='17000' unit='تومان' />
-            <RowNAV label='تعداد قابل خرید' value='35' unit='واحد' />
+            <RowNAV label='نرخ NAV' value={String(assetBuyValue?.nav)} unit='تومان' />
+            <RowNAV label='کارمزد' value={String(assetBuyValue?.fee)} unit='تومان' />
+            <RowNAV label='تعداد قابل خرید' value={String(assetBuyValue?.units_might_bought)} unit='واحد' />
           </Stack>
         )}
       </Stack>
