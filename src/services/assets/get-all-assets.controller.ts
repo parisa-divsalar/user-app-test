@@ -1,9 +1,8 @@
 import { sendRequest } from "@/apis/request";
 import { useUserInfo } from "@/hooks/useUserInfo";
 import { useQuery } from "@tanstack/react-query";
-const GET_ALL_ASSET_URL='/assets';
 
-const {token}=useUserInfo();
+
 interface Asset {
   asset_id: string;
   title: string;
@@ -35,9 +34,9 @@ interface GetAllAssetError{};
 interface GetAllAssetProps{};
 
 
-function getAllAssetsController(){
+function getAllAssetsController(token:string){
     return sendRequest<GetAllAssetsResponse,GetAllAssetError,GetAllAssetProps>({
-        url:GET_ALL_ASSET_URL,
+        url:'/assets',
         method:'get',
         params:{page:1,limit:50},
          config:{
@@ -53,9 +52,10 @@ getAllAssetsController.keyGen=()=>['get-all-assets'];
 
 
 export function useGetAllAssets(){
+  const {token}=useUserInfo();
     return useQuery({
         queryKey:getAllAssetsController.keyGen(),
-        queryFn:getAllAssetsController,
+        queryFn:()=>getAllAssetsController(token),
         enabled:!!token,
     });
 }

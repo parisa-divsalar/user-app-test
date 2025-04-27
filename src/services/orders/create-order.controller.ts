@@ -3,14 +3,14 @@ import { useUserInfo } from "@/hooks/useUserInfo";
 import { CreateOrderData as CreateOrderProps , OrderResponse as CreateOrderResponse   } from "@/type/user-order";
 import { useMutation } from "@tanstack/react-query";
 
-const {token,userId}= useUserInfo();
-const CREATE_ORDER_URL=`/users/${userId}/orders`;
+
+
 
  interface CreateOrderError{};
 
-function  createOrderController(body:CreateOrderProps){
+function  createOrderController(body:CreateOrderProps,userId:string,token:string){
 return sendRequest<CreateOrderResponse,CreateOrderError,CreateOrderProps>({
-    url:CREATE_ORDER_URL,
+    url:`/users/${userId}/orders`,
     method:'post',
     body:body,
     config:{
@@ -26,8 +26,10 @@ createOrderController.keyGen=()=>['create-order'];
 
 
 export function useCreateOrder(){
+    const {token,userId}= useUserInfo();
     return useMutation({
         mutationKey:createOrderController.keyGen(),
-        mutationFn:(body:CreateOrderProps)=>createOrderController(body)
+        mutationFn:(body:CreateOrderProps)=>createOrderController(body,userId,token),
+        
     });
 }

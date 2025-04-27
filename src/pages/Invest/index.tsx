@@ -6,7 +6,7 @@ import { PrivateRoutes } from '@/config/routes.ts';
 import { useNavigate } from 'react-router-dom';
 import InvestCard from '@/components/Card/Invest';
 import useStyles from '@/pages/Invest/useStyles.ts';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGetAllUserOrders } from '@/services/orders/get-all-user-orders.controller';
 import { Order } from '@/type/user-order';
 import InvestInfoDrawer from './Info';
@@ -16,17 +16,16 @@ const Invest = () => {
   const navigate = useNavigate();
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
   const [selectInvest, setSelectInvest] = useState<Order>();
-  const {data:userOrders}=useGetAllUserOrders();
+  const {data:userOrders,isLoading}=useGetAllUserOrders();
 const {body:userOrderList}={...userOrders?.data};
 
 const [getAssetId,setGetAssetId]=useState<number>(0);
-console.log(selectInvest)
-
-if (!userOrderList) return <InvestNotFound />;
-const filteredById=userOrderList.find(item=>item.created_at_unix===getAssetId);
+if(isLoading) return <>loading</>;
+const filteredById=userOrderList && userOrderList.find(item=>item.created_at_unix===getAssetId);
 
   return (
-    <Stack className={classes.mainContainer}>
+    <>
+   {userOrderList ? <Stack className={classes.mainContainer}>
       <Stack className={classes.content}>
         {userOrderList.map((item,index) => (
           <InvestCard
@@ -52,7 +51,8 @@ const filteredById=userOrderList.find(item=>item.created_at_unix===getAssetId);
     invest={filteredById}
   />
 )}
-    </Stack>
+    </Stack>:<InvestNotFound/>}
+    </>
   );
 };
 
