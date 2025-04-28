@@ -18,7 +18,7 @@ const Invest = () => {
   const [selectInvest, setSelectInvest] = useState<Order>();
   const {data:userOrders,isLoading}=useGetAllUserOrders();
 const {body:userOrderList}={...userOrders?.data};
-
+console.log(selectInvest)
 const [getAssetId,setGetAssetId]=useState<number>(0);
 if(isLoading) return <>loading</>;
 const filteredById=userOrderList && userOrderList.find(item=>item.created_at_unix===getAssetId);
@@ -39,7 +39,7 @@ const filteredById=userOrderList && userOrderList.find(item=>item.created_at_uni
       </Stack>
 
       <Stack my={2} >
-        <CustomButton fullWidth color='secondary' onClick={() => navigate(PrivateRoutes.addInvest)}>
+        <CustomButton fullWidth color='secondary'  onClick={() => navigate(PrivateRoutes.addInvest)}>
           + سفارش جدید
         </CustomButton>
       </Stack>
