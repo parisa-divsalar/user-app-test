@@ -6,7 +6,7 @@ import { PrivateRoutes } from '@/config/routes.ts';
 import { useNavigate } from 'react-router-dom';
 import InvestCard from '@/components/Card/Invest';
 import useStyles from '@/pages/Invest/useStyles.ts';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { useGetAllUserOrders } from '@/services/orders/get-all-user-orders.controller';
 import { Order } from '@/type/user-order';
 import InvestInfoDrawer from './Info';
