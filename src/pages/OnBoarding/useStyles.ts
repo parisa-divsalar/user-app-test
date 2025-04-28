@@ -20,19 +20,20 @@ const useStyles = makeStyles(() => ({
 
   introImage: {
     width: '100%',
-    height: 'auto',
-    maxHeight: '60vh',
+    height: '100%',
+    maxHeight: '45vh',
+    objectFit:'cover',
 
     '@media(max-width: 579px)': {
-      maxHeight: '50vh',
+      maxHeight: '45vh',
     },
   },
 
   content: {
     width: '100%',
     height: '100%',
-    maxHeight: `calc(${window.innerHeight}px - 5rem)`,
-    overflowY: 'auto',
+    maxHeight:'100vh',
+    overflowY: 'hidden',
     overflowX: 'hidden',
   },
 

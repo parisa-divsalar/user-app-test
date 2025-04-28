@@ -4,7 +4,7 @@ import { Theme } from '@mui/material';
 const useStyles = makeStyles((theme: Theme) => ({
   mainLayout: {
     width: '100%',
-    height: window.innerHeight,
+    height: '100vh',
     margin: '0',
     overflow: 'hidden',
     backgroundColor: theme.palette.grey.A700,
