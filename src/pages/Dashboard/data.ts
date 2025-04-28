@@ -13,12 +13,12 @@ import { PrivateRoutes } from '@/config/routes.ts';
 export const ServiceList: ServicesType[] = [
   {
     id: generateFakeUUIDv4(),
-    title: 'انتقال وجه',
+    title: 'انتقال ',
     icon: arrowUp,
   },
   {
     id: generateFakeUUIDv4(),
-    title: 'خرید و فروش',
+    title: 'معاملات',
     href: PrivateRoutes.invest,
     icon: invest,
   },
@@ -34,22 +34,22 @@ export const ServiceList: ServicesType[] = [
   },
   {
     id: generateFakeUUIDv4(),
-    title: 'شارژ اینترنت',
+    title: 'اینترنت ',
     icon: globe,
   },
   {
     id: generateFakeUUIDv4(),
-    title: 'شارژ سیم کارت',
+    title: 'شارژ',
     icon: simcard,
   },
   {
     id: generateFakeUUIDv4(),
-    title: 'پرداخت قبض',
+    title: ' قبض',
     icon: ghabz,
   },
   {
     id: generateFakeUUIDv4(),
-    title: 'خیریه',
+    title: 'نیکوکاری',
     icon: charity,
   },
 ];

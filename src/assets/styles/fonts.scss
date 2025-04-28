@@ -5,7 +5,7 @@
 **/
 
 @font-face {
-  font-family: AbarLowFaNum;
+  font-family: 'AbarLowFaNum';
   font-style: normal;
   font-weight: normal;
   src: url('../fonts/woff/AbarLowFaNum-Regular.woff') format('woff'),
@@ -19,3 +19,5 @@
   src: url('../fonts/woff/Arial.woff') format('woff'),
   url('../fonts/woff2/Arial.woff2') format('woff2');
 }
+
+*{font-family:'Arial'};
