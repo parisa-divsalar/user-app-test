@@ -49,17 +49,20 @@ const OnBoarding = () => {
             <Stack width='100%' overflow='hidden' textAlign='center' key={intro.id} dir='rtl'>
               <img src={intro.img} className={classes.introImage} alt={intro.title} />
              
-              <Typography variant='h6' color='text.primary' mt={2} px={4}>
+              <Typography variant='h6' color='text.primary' my={3} px={4}>
                 {intro.title}
               </Typography>
 
               <Typography
                 color='text.primary '
                 lineHeight={1.7}
+                letterSpacing='2px'
                 textAlign='justify'
-                variant='subtitle2'
-                px={3}
-                mt={2}
+                variant='subtitle1'
+                fontSize='1.4rem'
+                fontWeight='500'
+                px='2.5rem'
+                mt={3}
               >
                 {intro.description}
               </Typography>
