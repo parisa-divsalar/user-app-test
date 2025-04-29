@@ -47,7 +47,7 @@ const OnBoarding = () => {
         >
           {OnBoardingData.map((intro: OnBoardingProps) => (
             <Stack width='100%' overflow='hidden' textAlign='center' key={intro.id} dir='rtl'>
-              <img src={intro.img} className={classes.introImage} alt='' />
+              <img src={intro.img} className={classes.introImage} alt={intro.title} />
              
               <Typography variant='h6' color='text.primary' mt={2} px={4}>
                 {intro.title}

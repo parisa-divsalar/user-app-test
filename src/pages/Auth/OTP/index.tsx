@@ -46,7 +46,7 @@ const OTP = () => {
     <Stack className={classes.mainContainer}>
       <Stack className={classes.content}>
         <Typography mt={2} color='text.primary'>
-          {`  کد تایید ارسال شده به شماره ${msisdn.startsWith('0') ? msisdn : `0${msisdn}`} را وارد کنید`}
+          {`کد تایید ارسال شده به شماره ${msisdn?.startsWith('0') ? msisdn : `0${msisdn}`} را وارد کنید`}
           <Typography
             component='span'
             color='secondary.main'
@@ -72,17 +72,7 @@ const OTP = () => {
               gap: '0.5rem',
               justifyContent: 'end',
             }}
-            inputStyle={{
-              border: `1px solid ${theme === 'dark' ? '#616f86' : '#dddfe3'}`,
-              borderRadius: '8px',
-              flex: '0 0 15%',
-              height: '54px',
-              fontSize: '1rem',
-              color: theme === 'dark' ? '#c9d0d9' : '#3c6886',
-              backgroundColor: 'transparent',
-              fontWeight: 'bold',
-              caretColor: theme === 'dark' ? 'white' : '#616f86',
-            }}
+            inputStyle={classes.otpInput}
             renderInput={(props) => <input {...props} />}
           />
 
