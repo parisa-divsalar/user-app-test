@@ -11,7 +11,7 @@ import RowNAV from '@/pages/Invest/Add/Row';
 import useStyles from '@/pages/Invest/Add/useStyles.ts';
 import { addInvest, updateInvest } from '@/store/user/userSlice.ts';
 import { useDispatch } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { generateFakeUUIDv4 } from '@/utils/generateUUID.ts';
 import InvestResultDrawer from '@/pages/Invest/Add/Result';
 import { commafy } from '@/utils/commafyHelper.ts';
@@ -21,6 +21,7 @@ import { useCreateOrder } from '@/services/orders/create-order.controller';
 import { useGetAllAssets } from '@/services/assets/get-all-assets.controller';
 import { useAssetsBuy } from '@/services/assets/get-assets-buy.controller';
 import { useAssetsSell } from '@/services/assets/get-assets-sell.controller';
+import { useGetOrderById } from '@/services/orders/get-order-by-id.controller';
 
 const AddInvest = () => {
   const classes = useStyles();
@@ -35,7 +36,8 @@ const [anotherState, setAnotherState] = useState<string>('');
   const [numberOfUnits, setNumberOfUnits] = useState<string>('');
   const [notEnoughWallet] = useState<boolean>(false);
   const investState: any = state?.invest;
-
+const hash=useLocation();
+console.log(hash)
 const {mutate}=useCreateOrder();
 const {data:getAllAssets}=useGetAllAssets();
 const [assetId,setAssetId]=useState<string>(getAllAssets?.data?.body[0].asset_id? getAllAssets?.data?.body[0].asset_id:'');
@@ -89,6 +91,9 @@ const {body:allAssets}={...getAllAssets?.data};
       setNumberOfUnits(investState.numberOfUnits);
     }
   }, [investState]);
+  const isEdit=!!hash;
+  const {data:getById}=useGetOrderById('99d98d07-4670-4d58-866a-dd6a9d63d3f1')
+  console.log('getById',getById)
 
   return (
     <Stack className={classes.mainContainer}>
