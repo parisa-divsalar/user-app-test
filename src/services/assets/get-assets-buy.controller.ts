@@ -8,6 +8,11 @@ import { useQuery } from "@tanstack/react-query";
 
 interface GetAssetsBuyProps{};
 interface GetAssetsBuyError{};
+export interface AssetBuyValue {
+    nav: number;
+    last_price: number;
+    fee: number;
+    units_might_bought: number};
 interface GetAssetsBuyResponse{
       status: "success" | "error";
   status_code: number;
@@ -18,12 +23,7 @@ interface GetAssetsBuyResponse{
     page_num: number;
     total: number;
   };
-  body: {
-    nav: number;
-    last_price: number;
-    fee: number;
-    units_might_bought: number;
-  };
+  body: AssetBuyValue
 }
 
 function getAssetsBuyController(asset_id:string,token:string){
@@ -42,11 +42,11 @@ return sendRequest<GetAssetsBuyResponse,GetAssetsBuyError,GetAssetsBuyProps>({
 
 getAssetsBuyController.keyGen=()=>['assets-buy'];
 
-export function useAssetsBuy(asset_id:string){
+export function useAssetsBuy(asset_id:string,option?:{enabled?:boolean}){
     const {token}=useUserInfo();
     return useQuery({
         queryKey:getAssetsBuyController.keyGen(),
         queryFn:()=>getAssetsBuyController(asset_id,token),
-        enabled:!!token,
+        enabled:!!token && (option?.enabled ?? true),
     });
 };

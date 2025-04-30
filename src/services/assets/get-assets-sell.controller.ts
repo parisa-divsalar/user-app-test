@@ -8,6 +8,13 @@ import { useQuery } from "@tanstack/react-query";
 
 interface GetAssetsSellProps{};
 interface GetAssetsSellError{};
+export interface assetBySell{
+    nav: number;
+    last_price: number;
+    fee: number;
+    net_income: number;
+    gross_income: number;
+  };
 interface GetAssetsSellResponse{
   status: "success" | "error";
   status_code: number;
@@ -18,13 +25,7 @@ interface GetAssetsSellResponse{
     page_num: number;
     total: number;
   };
-  body: {
-    nav: number;
-    last_price: number;
-    fee: number;
-    net_income: number;
-    gross_income: number;
-  };
+  body:assetBySell
 };;
 
 
@@ -43,12 +44,12 @@ return sendRequest<GetAssetsSellResponse,GetAssetsSellError,GetAssetsSellProps>(
 
 getAssetSellController.keyGen=()=>['asset-sell'];
 
-export function useAssetsSell(asset_id:string){
+export function useAssetsSell(asset_id:string,option?:{enabled?:boolean}){
     const  {token}=useUserInfo();
 return useQuery({
     queryKey:getAssetSellController.keyGen(),
     queryFn:()=>getAssetSellController(asset_id,token),
-    enabled:!!token,
+    enabled:!!token && (option?.enabled?? true),
 })
 
 };

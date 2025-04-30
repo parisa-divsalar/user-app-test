@@ -3,7 +3,7 @@ import { useUserInfo } from "@/hooks/useUserInfo";
 import { useQuery } from "@tanstack/react-query";
 
 
-interface Asset {
+export interface Asset {
   asset_id: string;
   title: string;
   description: string;
@@ -17,7 +17,7 @@ interface Asset {
   sell_side_fee_in_percent: number;
   sell_max_fee_in_rials: number;
 }
-interface GetAllAssetsResponse{
+export interface GetAllAssetsResponse{
       status: string;
   status_code: number;
   message: string;
