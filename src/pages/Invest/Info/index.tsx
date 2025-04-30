@@ -146,7 +146,7 @@ if(isSuccess) queryClient.invalidateQueries({queryKey:['user-orders']});
               color='secondary'
               variant='outlined'
               onClick={() =>
-                navigate(`${PrivateRoutes.addInvest}`, { state: { invest }  },)
+                navigate(`${PrivateRoutes.addInvest}?${order_id}#edit`, { state: { invest }  },)
               }
             >
               ویرایش

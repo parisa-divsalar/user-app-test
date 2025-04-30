@@ -54,6 +54,6 @@ export function useGetOrderById(orderId:string){
     return useQuery({
         queryKey:getOrderByIdController.keyGen(orderId),
         queryFn:()=>getOrderByIdController(userId,orderId,token),
-        enabled:!!token
+        enabled:!!token &&  !!orderId
     })
 }

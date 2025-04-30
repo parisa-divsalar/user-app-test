@@ -17,28 +17,36 @@ import InvestResultDrawer from '@/pages/Invest/Add/Result';
 import { commafy } from '@/utils/commafyHelper.ts';
 import { CreateOrderData } from '@/type/user-order';
 import { useCreateOrder } from '@/services/orders/create-order.controller';
-import { useGetOrderById } from '@/services/orders/get-order-by-id.controller';
 import { useAddInvest } from '@/hooks/useAddInvest';
 
 const AddInvest = () => {
-  const {assetsData,assetId,setAssetId,assetSell,assetBuyValue,orderType,setOrderType}=useAddInvest();
+  const {
+    assetsData,
+    assetId,
+    setAssetId,
+    assetSell,
+    assetBuyValue,
+    orderType,
+    setOrderType,
+    amount,
+    setAmount
+  }=useAddInvest();
+
   const classes = useStyles();
   const dispatch = useDispatch();
   const { state } = useLocation();
   const navigate = useNavigate();
+
  
   const [investType, setInvestType] = useState<InvestType>(InvestType.GOLD);
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
-  const [amount, setAmount] = useState<string>('');
-const [anotherState, setAnotherState] = useState<string>('');
+  const [anotherState, setAnotherState] = useState<string>('');
   const [numberOfUnits, setNumberOfUnits] = useState<string>('');
   const [notEnoughWallet] = useState<boolean>(false);
   const investState: any = state?.invest;
 
 const {mutate}=useCreateOrder();
   const handleChangeOrder = (event: any) => setOrderType(event.target.value);
-  const handleChangeInvest = (event: any) => setInvestType(event.target.value);
-
  const handleChangeAmount = (value: string) => {
   const rawValue = value?.replace(/,/g, '');
   if (!/^\d*$/.test(rawValue)) return;
@@ -89,7 +97,7 @@ const {mutate}=useCreateOrder();
       setNumberOfUnits(investState.numberOfUnits);
     }
   }, [investState]);
-
+  
 
   return (
     <Stack className={classes.mainContainer}>
@@ -146,8 +154,6 @@ const {mutate}=useCreateOrder();
     </RadioGroup>
   }
 </Stack>
-
-
         {orderType === 'buy' ? (
           <CustomInput
       
