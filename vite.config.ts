@@ -3,9 +3,7 @@ import react from '@vitejs/plugin-react';
 import * as path from 'path';
 
 export default defineConfig({
-  plugins: [react(),
-    tailwindcss(),
-  ],
+  plugins: [react()],
   server: {
     port: 3000, // Change the port number here
   },
@@ -16,7 +14,3 @@ export default defineConfig({
     manifest: true,
   },
 });
-function tailwindcss(): import("vite").PluginOption {
-  throw new Error('Function not implemented.');
-}
-
