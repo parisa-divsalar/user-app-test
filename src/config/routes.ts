@@ -8,6 +8,7 @@ export const PublicRoutes = {
   accountDocuments: '/account/documents',
   accountAuthentication: '/account/authentication',
   accountResult: '/account/result',
+  uploadDocument:'/account/upload-document'
 };
 
 export const PrivateRoutes = {
@@ -44,6 +45,7 @@ export const neverShowAppBar = [
   PrivateRoutes.dashboard,
   PrivateRoutes.menu,
   PublicRoutes.accountResult,
+  PublicRoutes.uploadDocument
 ];
 
 export const showBottomNavigation = [PrivateRoutes.dashboard, PrivateRoutes.menu];
@@ -54,4 +56,5 @@ export const widthLayoutRoutes = [
   PrivateRoutes.dashboard,
   PublicRoutes.login,
   PrivateRoutes.menu,
+  PublicRoutes.uploadDocument
 ];
