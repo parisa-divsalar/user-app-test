@@ -1,6 +1,6 @@
-import { sendRequest } from "@/apis/request";
-import { useUserInfo } from "@/hooks/useUserInfo";
-import {useQuery} from '@tanstack/react-query';
+import { sendRequest } from '@/apis/request';
+import { useUserInfo } from '@/hooks/useUserInfo';
+import { useQuery } from '@tanstack/react-query';
 interface Asset {
   asset_id: string;
   title: string;
@@ -16,10 +16,10 @@ interface Asset {
   sell_max_fee_in_rials: number;
 }
 
-export interface GetAllUserAssetsError{};
-export interface GetAllUserAssetsProps{};
-export interface GetAllUserAssetsResponse{
-     status: string;
+export interface GetAllUserAssetsError {}
+export interface GetAllUserAssetsProps {}
+export interface GetAllUserAssetsResponse {
+  status: string;
   status_code: number;
   message: string;
   has_error: boolean;
@@ -29,44 +29,34 @@ export interface GetAllUserAssetsResponse{
     total: number;
   };
   body: Asset[];
-};
+}
 
-const {token,userId}=useUserInfo();
+const { token, userId } = useUserInfo();
 
-const GET_ALL_USER_ASSET_URL=`/users/${userId}/assets`;
+const GET_ALL_USER_ASSET_URL = `/users/${userId}/assets`;
 
-
-function getAllUsersAssetsController(){
-return sendRequest<GetAllUserAssetsResponse,GetAllUserAssetsError,GetAllUserAssetsProps>({
-    method:'get',
-    url:GET_ALL_USER_ASSET_URL,
-    params:{
-        page:1,
-        limit:50
+function getAllUsersAssetsController() {
+  return sendRequest<GetAllUserAssetsResponse, GetAllUserAssetsError, GetAllUserAssetsProps>({
+    method: 'get',
+    url: GET_ALL_USER_ASSET_URL,
+    params: {
+      page: 1,
+      limit: 50,
     },
-  config:{
-    headers:{
-        Authorization:token
-    }
-  }
-});
-};
+    config: {
+      headers: {
+        Authorization: token,
+      },
+    },
+  });
+}
 
-getAllUsersAssetsController.keyGen=()=>['all-users-assets'];
+getAllUsersAssetsController.keyGen = () => ['all-users-assets'];
 
-
-export function useAllUsersAssets(){
-return useQuery({
-    queryKey:getAllUsersAssetsController.keyGen(),
-    queryFn:getAllUsersAssetsController,
-    enabled:!!token,
-});
-};
-
-
-
-
-
-
-
-
+export function useAllUsersAssets() {
+  return useQuery({
+    queryKey: getAllUsersAssetsController.keyGen(),
+    queryFn: getAllUsersAssetsController,
+    enabled: !!token,
+  });
+}

@@ -10,9 +10,9 @@ export function translateInvestStatus(status: InvestStatus) {
     case 'pending':
       return 'در حال بررسی';
     case 'cancelling':
-      return  'لغو شده';
+      return 'لغو شده';
     case 'done':
-    return 'انجام شده'
+      return 'انجام شده';
   }
 }
 
@@ -33,9 +33,9 @@ export function getStatusBgColor(status: InvestStatus, theme: Theme) {
   switch (status) {
     case 'done':
       return theme === 'dark' ? 'warning.dark' : 'warning.light';
-    case 'cancelled' :
+    case 'cancelled':
       return theme === 'dark' ? 'error.dark' : 'error.light';
-       case 'failed' :
+    case 'failed':
       return theme === 'dark' ? 'error.dark' : 'error.light';
     default:
       return theme === 'dark' ? 'success.dark' : 'success.light';
@@ -47,7 +47,7 @@ export function getStatusTextColor(status: InvestStatus) {
     case 'pending':
       return 'warning.main';
     case 'cancelled':
-      case 'failed' :
+    case 'failed':
       return 'error.main';
     default:
       return 'success.main';

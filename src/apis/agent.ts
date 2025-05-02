@@ -1,13 +1,6 @@
-import axios, {
-  AxiosError,
-  AxiosInstance,
-  InternalAxiosRequestConfig,
-  AxiosResponse,
-} from 'axios';
+import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig, AxiosResponse } from 'axios';
 
-const onRequest = (
-  config: InternalAxiosRequestConfig<any>,
-): InternalAxiosRequestConfig<any> => {
+const onRequest = (config: InternalAxiosRequestConfig<any>): InternalAxiosRequestConfig<any> => {
   return config;
 };
 
@@ -23,18 +16,15 @@ const onResponseError = (error: AxiosError): Promise<AxiosError> => {
   return Promise.reject(error);
 };
 
-export function setupInterceptorsTo(
-  axiosInstance: AxiosInstance,
-): AxiosInstance {
+export function setupInterceptorsTo(axiosInstance: AxiosInstance): AxiosInstance {
   axiosInstance.interceptors.request.use(onRequest, onRequestError);
   axiosInstance.interceptors.response.use(onResponse, onResponseError);
   return axiosInstance;
 }
 
-
 export const axiosAgent = (() => {
   const config = {
-    baseURL:  import.meta.env.VITE_API_BASE_URL,
+    baseURL: import.meta.env.VITE_API_BASE_URL,
     headers: {
       'Content-Type': 'application/json',
     },

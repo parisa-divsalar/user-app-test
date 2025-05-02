@@ -27,15 +27,11 @@ interface IResult<T = any> {
 
 type RequestFunc<T> = Promise<IResult<T>>;
 
-type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any
-  ? A
-  : never;
+type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any ? A : never;
 
 type ExtractArgumentTypes<T> = T extends (...args: infer A) => any
   ? {
-      [K in keyof A]: A[K] extends (...args: any) => any
-        ? ExtractArgumentTypes<A[K]>
-        : A[K];
+      [K in keyof A]: A[K] extends (...args: any) => any ? ExtractArgumentTypes<A[K]> : A[K];
     }
   : never;
 

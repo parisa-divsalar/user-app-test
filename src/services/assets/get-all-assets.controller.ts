@@ -1,7 +1,6 @@
-import { sendRequest } from "@/apis/request";
-import { useUserInfo } from "@/hooks/useUserInfo";
-import { useQuery } from "@tanstack/react-query";
-
+import { sendRequest } from '@/apis/request';
+import { useUserInfo } from '@/hooks/useUserInfo';
+import { useQuery } from '@tanstack/react-query';
 
 export interface Asset {
   asset_id: string;
@@ -17,8 +16,8 @@ export interface Asset {
   sell_side_fee_in_percent: number;
   sell_max_fee_in_rials: number;
 }
-export interface GetAllAssetsResponse{
-      status: string;
+export interface GetAllAssetsResponse {
+  status: string;
   status_code: number;
   message: string;
   has_error: boolean;
@@ -28,35 +27,31 @@ export interface GetAllAssetsResponse{
     total: number;
   };
   body: Asset[];
-};
-
-interface GetAllAssetError{};
-interface GetAllAssetProps{};
-
-
-function getAllAssetsController(token:string){
-    return sendRequest<GetAllAssetsResponse,GetAllAssetError,GetAllAssetProps>({
-        url:'/assets',
-        method:'get',
-        params:{page:1,limit:50},
-         config:{
-            headers:{
-                Authorization:token
-            }
-         }
-
-    });
-};
-
-getAllAssetsController.keyGen=()=>['get-all-assets'];
-
-
-export function useGetAllAssets(){
-  const {token}=useUserInfo();
-    return useQuery({
-        queryKey:getAllAssetsController.keyGen(),
-        queryFn:()=>getAllAssetsController(token),
-        enabled:!!token,
-    });
 }
 
+interface GetAllAssetError {}
+interface GetAllAssetProps {}
+
+function getAllAssetsController(token: string) {
+  return sendRequest<GetAllAssetsResponse, GetAllAssetError, GetAllAssetProps>({
+    url: '/assets',
+    method: 'get',
+    params: { page: 1, limit: 50 },
+    config: {
+      headers: {
+        Authorization: token,
+      },
+    },
+  });
+}
+
+getAllAssetsController.keyGen = () => ['get-all-assets'];
+
+export function useGetAllAssets() {
+  const { token } = useUserInfo();
+  return useQuery({
+    queryKey: getAllAssetsController.keyGen(),
+    queryFn: () => getAllAssetsController(token),
+    enabled: !!token,
+  });
+}

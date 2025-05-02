@@ -28,8 +28,8 @@ const PublicRoute = () => {
       <Route path={PublicRoutes.accountDocuments} element={<AccountDocuments />} />
       <Route path={PublicRoutes.accountAuthentication} element={<AccountAuthentication />} />
       <Route path={PublicRoutes.accountResult} element={<AccountResult />} />
-      <Route path={PublicRoutes.uploadDocument} element={<UploadDocument/>} />
-      <Route path={PublicRoutes.uploadedFile} element={<UploadedFile/>} />
+      <Route path={PublicRoutes.uploadDocument} element={<UploadDocument />} />
+      <Route path={PublicRoutes.uploadedFile} element={<UploadedFile />} />
     </Routes>
   );
 };

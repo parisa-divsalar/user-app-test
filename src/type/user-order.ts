@@ -1,11 +1,11 @@
-export type OrderState="created" | "pending" | "completed" | "cancelled"
+export type OrderState = 'created' | 'pending' | 'completed' | 'cancelled';
 
-export  type Order = {
+export type Order = {
   order_id: string;
   asset_id: string;
   asset_isin: string;
-  side: "buy" | "sell";
-  state: 'created' | 'failed' | 'pending' | 'cancelling'|'cancelled'|'done';
+  side: 'buy' | 'sell';
+  state: 'created' | 'failed' | 'pending' | 'cancelling' | 'cancelled' | 'done';
   final_volume: number | null;
   final_price: number | null;
   available_budget: number;
@@ -21,7 +21,7 @@ export type Meta = {
 };
 
 export type OrderResponse = {
-  status: "success" | "error";
+  status: 'success' | 'error';
   status_code: number;
   message: string;
   has_error: boolean;
@@ -29,13 +29,10 @@ export type OrderResponse = {
   body: Order[];
 };
 
-
- export interface CreateOrderData{
-  side: "buy"|"sell", 
-    asset_id: string,
-    asset_isin: string,
-    budget_in_rials?:number,
-    volume?:number
- };
-
- 
+export interface CreateOrderData {
+  side: 'buy' | 'sell';
+  asset_id: string;
+  asset_isin: string;
+  budget_in_rials?: number;
+  volume?: number;
+}

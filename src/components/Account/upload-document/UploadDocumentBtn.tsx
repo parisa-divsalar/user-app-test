@@ -1,19 +1,13 @@
-import { FC, ReactNode } from "react";
-import useStyles from "./useStyles"
+import { FC, ReactNode } from 'react';
+import useStyles from './useStyles';
 
-
-interface UploadDocumentBtnProps{
-    icon:ReactNode
+interface UploadDocumentBtnProps {
+  icon: ReactNode;
 }
 
+const UploadDocumentBtn: FC<UploadDocumentBtnProps> = ({ icon }) => {
+  const { uploadDocumentBtn } = useStyles();
+  return <button className={uploadDocumentBtn}>{icon}</button>;
+};
 
-const UploadDocumentBtn:FC<UploadDocumentBtnProps> = ({icon}) => {
-    const {uploadDocumentBtn}=useStyles();
-  return (
-    <button className={uploadDocumentBtn}>{icon}</button>
-  )
-}
-
-export default UploadDocumentBtn
-
-
+export default UploadDocumentBtn;

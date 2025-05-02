@@ -1,69 +1,67 @@
-
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(() => ({
-
-    transferMonyContainer:{
-        height:'100%',
-        maxHeight:'100%',
-        padding:'0 7px',
-        display:'flex',
-        flexDirection:'column',
-    },
-    transferFrom:{
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'space-between',
-        marginBottom:'9px',
-    },
-    transferTitle:{
+  transferMonyContainer: {
+    height: '100%',
+    maxHeight: '100%',
+    padding: '0 7px',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  transferFrom: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: '9px',
+  },
+  transferTitle: {
     color: '#F5F9FC',
     textAlign: 'right',
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: 600,
-     lineHeight: 'normal',
-    },
+    lineHeight: 'normal',
+  },
 
- transferFromButton:{
-     display:'flex',
-     alignItems:'center',
-     gap:'4px',
+  transferFromButton: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '4px',
     color: '#2283AD',
     textAlign: 'right',
     fontSize: '12px',
     fontStyle: 'normal',
     fontWeight: 600,
     lineHeight: 'normal',
-    border:'none',
-    backgroundColor:'transparent',
-    },
-    submitButtonStyle:{
-        display: 'flex',
-        width: '100%',
-        height: '44px',
-        padding: '8px 6px',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '2px',
-        borderRadius:'10px',
-        overflow:'hidden',
-        border:'none',
-        outline:'none',
-        color:'#12284C',
-        fontSize: '14px',
-        fontStyle: 'normal',
-        fontWeight: 400,
-        lineHeight: 'normal',
-      alignSelf:'end',
-marginTop:'auto',
-cursor:'pointer'
-    },
-    mount:{
-    display:'flex',
-    padding:'8px 11px',
-    alignItems:'center',
-    justifyContent:'space-between',
+    border: 'none',
+    backgroundColor: 'transparent',
+  },
+  submitButtonStyle: {
+    display: 'flex',
+    width: '100%',
+    height: '44px',
+    padding: '8px 6px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '2px',
+    borderRadius: '10px',
+    overflow: 'hidden',
+    border: 'none',
+    outline: 'none',
+    color: '#12284C',
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    lineHeight: 'normal',
+    alignSelf: 'end',
+    marginTop: 'auto',
+    cursor: 'pointer',
+  },
+  mount: {
+    display: 'flex',
+    padding: '8px 11px',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     overflow: 'hidden',
     color: '#F5F9FC',
     textOverflow: 'ellipsis',
@@ -71,12 +69,9 @@ cursor:'pointer'
     fontStyle: 'normal',
     fontWeight: 600,
     lineHeight: 'normal',
-    border:'1px solid #626F86 ',
-    borderRadius:'8px'
-
-
-    }
-
+    border: '1px solid #626F86 ',
+    borderRadius: '8px',
+  },
 }));
 
 export default useStyles;

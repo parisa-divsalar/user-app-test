@@ -8,7 +8,6 @@ import {
   getStatusBgColor,
   getStatusTextColor,
   translateInvestStatus,
-
 } from '@/constants/translate.ts';
 import { useSelector } from 'react-redux';
 import { themeSelector } from '@/store/common/commonSelector.ts';
@@ -18,29 +17,22 @@ interface InvestCardProps {
   invest: Order;
   setSelectInvest: (invest: Order) => void;
   setOpenDrawer: (openDrawer: boolean) => void;
-  setGetAssetId: React.Dispatch<React.SetStateAction<number>>
+  setGetAssetId: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const InvestCard: FunctionComponent<InvestCardProps> = (props) => {
   const classes = useStyles();
-  const { invest, setSelectInvest, setOpenDrawer,setGetAssetId } = props;
-  const { 
-    available_budget,
-    available_units,
-    created_at,
-    created_at_unix,
-    side,
-    state 
-  } = invest;
+  const { invest, setSelectInvest, setOpenDrawer, setGetAssetId } = props;
+  const { available_budget, available_units, created_at, created_at_unix, side, state } = invest;
   const theme = useSelector(themeSelector);
-const orderType=side==='buy';
+  const orderType = side === 'buy';
   return (
     <CardActionArea
       className={classes.cardActionArea}
       onClick={() => {
         setSelectInvest(invest);
         setOpenDrawer(true);
-   setGetAssetId(created_at_unix)
+        setGetAssetId(created_at_unix);
       }}
     >
       <Stack className={classes.mainCard}>
@@ -49,7 +41,7 @@ const orderType=side==='buy';
             <Stack
               className={classes.circleArrowContainer}
               bgcolor={
-             orderType
+                orderType
                   ? theme === 'dark'
                     ? 'success.dark'
                     : 'success.light'
@@ -68,21 +60,23 @@ const orderType=side==='buy';
               {'سفارش '}
               {side === 'buy' ? 'خرید ' : 'فروش '}
               {/* {translateInvestType('GOLD')} */}
-             طلا 
+              طلا
             </Typography>
           </Stack>
           <Typography fontWeight='normal' variant='subtitle2'>
-           {available_budget ? commafy(String(available_budget)) : '-'} {'تومان'}       
-               </Typography>
+            {available_budget ? commafy(String(available_budget)) : '-'} {'تومان'}
+          </Typography>
         </Stack>
 
         <Stack direction='row' justifyContent='space-between'>
           <Typography color='text.disable' variant='caption' mr={5} mt={1}>
             {created_at}
           </Typography>
-         { available_units &&  <Typography color='text.primary' variant='subtitle2'>
-            {available_units} {'واحد'}
-          </Typography>}
+          {available_units && (
+            <Typography color='text.primary' variant='subtitle2'>
+              {available_units} {'واحد'}
+            </Typography>
+          )}
         </Stack>
 
         <Stack width='100%' alignItems='end' mt={0.5}>

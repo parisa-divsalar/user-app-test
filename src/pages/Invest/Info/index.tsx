@@ -8,7 +8,6 @@ import {
   getStatusBgColor,
   getStatusTextColor,
   translateInvestStatus,
-
 } from '@/constants/translate.ts';
 import { useNavigate } from 'react-router-dom';
 import { PrivateRoutes } from '@/config/routes.ts';
@@ -54,18 +53,16 @@ const InvestInfoDrawer: FunctionComponent<InvestResultDrawerProps> = (props) => 
   const { openDrawer, closeDrawer, invest } = props;
 
   const navigate = useNavigate();
-  const {
-state,side,available_units,order_id
-  } = invest ;
+  const { state, side, available_units, order_id } = invest;
   const classes = useStyles();
-const queryClient=useQueryClient()
+  const queryClient = useQueryClient();
   const [openCancelInvest, setOpenCancelInvest] = useState<boolean>(false);
   const theme = useSelector(themeSelector);
-const {mutate,isSuccess}=useCancelOrder()
-  const  handleCancelOrder=(asset_id:string)=>{
-mutate(asset_id);
-if(isSuccess) queryClient.invalidateQueries({queryKey:['user-orders']});
-}
+  const { mutate, isSuccess } = useCancelOrder();
+  const handleCancelOrder = (asset_id: string) => {
+    mutate(asset_id);
+    if (isSuccess) queryClient.invalidateQueries({ queryKey: ['user-orders'] });
+  };
   return (
     <Drawer
       anchor='bottom'
@@ -88,23 +85,20 @@ if(isSuccess) queryClient.invalidateQueries({queryKey:['user-orders']});
           </Typography>
         ) : (
           <>
+            <InvestInfoRow label='نوع معامله' value={side === 'buy' ? 'خرید' : 'فروش'} />
             <InvestInfoRow
-              label='نوع معامله'
-              value={side ==='buy' ? 'خرید' : 'فروش'}
+              label='نوع سرمایه گذاری'
+              value={
+                // translateInvestType(investType)
+                'طلا'
+              }
             />
-            <InvestInfoRow label='نوع سرمایه گذاری' value={
-              // translateInvestType(investType)
-              'طلا'
-            } />
             <InvestInfoRow label='تعداد واحد' value={available_units} />
             <InvestInfoRow label='تاریخ و ساعت ' value='۱۴۰۴/۰۴/۱۹-۱۲:۱۰' />
             <InvestInfoRow
               label='وضعیت'
               value={
-                <Stack
-                  className={classes.statusContainer}
-                  bgcolor={getStatusBgColor(state, theme)}
-                >
+                <Stack className={classes.statusContainer} bgcolor={getStatusBgColor(state, theme)}>
                   <Typography variant='caption' color={getStatusTextColor(state)}>
                     {translateInvestStatus(state)}
                   </Typography>
@@ -146,7 +140,7 @@ if(isSuccess) queryClient.invalidateQueries({queryKey:['user-orders']});
               color='secondary'
               variant='outlined'
               onClick={() =>
-                navigate(`${PrivateRoutes.addInvest}?${order_id}#edit`, { state: { invest }  },)
+                navigate(`${PrivateRoutes.addInvest}?${order_id}#edit`, { state: { invest } })
               }
             >
               ویرایش

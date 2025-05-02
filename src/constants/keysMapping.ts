@@ -104,9 +104,9 @@ const helperMapping: any = {
   '/invest/add?edit=true': {
     message: 'ویرایش سفارش',
   },
-  '/transferMoney':{
-    message:'انتقال'
-  }
+  '/transferMoney': {
+    message: 'انتقال',
+  },
 };
 
 export const typeMappingHandler = (key: string) => {

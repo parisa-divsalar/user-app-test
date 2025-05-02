@@ -28,7 +28,7 @@ interface InvestResultDrawerProps {
   openDrawer: boolean;
   closeDrawer: () => void;
   error: boolean;
-  orderType: 'buy'|'sell';
+  orderType: 'buy' | 'sell';
   onSubmit?: () => void;
 }
 

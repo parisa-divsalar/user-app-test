@@ -25,7 +25,6 @@ const Login = () => {
   const [type, setType] = useState<typeTextField>('password');
 
   const onSubmit = () => {
-
     setLoading(true);
     const body = {
       method: 'username',

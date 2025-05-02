@@ -29,15 +29,14 @@ const AddInvest = () => {
     orderType,
     setOrderType,
     amount,
-    setAmount
-  }=useAddInvest();
+    setAmount,
+  } = useAddInvest();
 
   const classes = useStyles();
   const dispatch = useDispatch();
   const { state } = useLocation();
   const navigate = useNavigate();
 
- 
   const [investType, setInvestType] = useState<InvestType>(InvestType.GOLD);
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
   const [anotherState, setAnotherState] = useState<string>('');
@@ -45,15 +44,15 @@ const AddInvest = () => {
   const [notEnoughWallet] = useState<boolean>(false);
   const investState: any = state?.invest;
 
-const {mutate}=useCreateOrder();
+  const { mutate } = useCreateOrder();
   const handleChangeOrder = (event: any) => setOrderType(event.target.value);
- const handleChangeAmount = (value: string) => {
-  const rawValue = value?.replace(/,/g, '');
-  if (!/^\d*$/.test(rawValue)) return;
-  const formattedValue = Number(rawValue).toLocaleString('en-US');
-  setAmount(formattedValue);
-  setAnotherState(rawValue);
-};
+  const handleChangeAmount = (value: string) => {
+    const rawValue = value?.replace(/,/g, '');
+    if (!/^\d*$/.test(rawValue)) return;
+    const formattedValue = Number(rawValue).toLocaleString('en-US');
+    setAmount(formattedValue);
+    setAnotherState(rawValue);
+  };
 
   const onSubmit = () => {
     const invest: IInvest = {
@@ -67,25 +66,25 @@ const {mutate}=useCreateOrder();
     };
 
     if (investState) dispatch(updateInvest({ id: investState.id, invest }));
-    else dispatch(addInvest(invest)); 
-    const buyAsset:CreateOrderData={
-      asset_id:assetId,
-      side:orderType,
-      asset_isin:'IRTKZARV0001',
-      budget_in_rials:Number(anotherState)
+    else dispatch(addInvest(invest));
+    const buyAsset: CreateOrderData = {
+      asset_id: assetId,
+      side: orderType,
+      asset_isin: 'IRTKZARV0001',
+      budget_in_rials: Number(anotherState),
     };
-    const sellAsset={
-          asset_id:assetId,
-      side:orderType,
-      asset_isin:'IRTKZARV0001',
-      volume:Number(anotherState)
+    const sellAsset = {
+      asset_id: assetId,
+      side: orderType,
+      asset_isin: 'IRTKZARV0001',
+      volume: Number(anotherState),
     };
 
-  if(orderType==='buy'){
-   mutate(buyAsset);
-  }else{
-    mutate(sellAsset)
-  }
+    if (orderType === 'buy') {
+      mutate(buyAsset);
+    } else {
+      mutate(sellAsset);
+    }
     setOpenDrawer(true);
   };
 
@@ -97,7 +96,6 @@ const {mutate}=useCreateOrder();
       setNumberOfUnits(investState.numberOfUnits);
     }
   }, [investState]);
-  
 
   return (
     <Stack className={classes.mainContainer}>
@@ -113,15 +111,15 @@ const {mutate}=useCreateOrder();
             onChange={handleChangeOrder}
             sx={{ flexWrap: 'nowrap' }}
           >
-            <FormControlLabel 
+            <FormControlLabel
               value={'buy'}
-            onChange={()=>setOrderType('buy')}
+              onChange={() => setOrderType('buy')}
               control={<Radio color='secondary' />}
               label='خرید'
               sx={{ width: '100%' }}
             />
             <FormControlLabel
-             onChange={()=>setOrderType('sell')}
+              onChange={() => setOrderType('sell')}
               value={'sell'}
               control={<Radio color='secondary' />}
               label='فروش'
@@ -135,28 +133,27 @@ const {mutate}=useCreateOrder();
         </Typography>
 
         <Stack className={classes.orderBox} mb={2}>
-  {assetsData && 
-    <RadioGroup
-      row
-      value={assetId}
-      onChange={(e) => setAssetId(e.target.value)}
-      sx={{ flexWrap: 'nowrap', display: 'flex', alignItems: 'center' }}
-    >
-      {assetsData.map((item, index) => (
-        <FormControlLabel
-          key={item.asset_id + index}
-          value={item.asset_id}
-          control={<Radio color='secondary' />}
-          label={item.persian_name}
-          sx={{ width: '100%' }}
-        />
-      ))}
-    </RadioGroup>
-  }
-</Stack>
+          {assetsData && (
+            <RadioGroup
+              row
+              value={assetId}
+              onChange={(e) => setAssetId(e.target.value)}
+              sx={{ flexWrap: 'nowrap', display: 'flex', alignItems: 'center' }}
+            >
+              {assetsData.map((item, index) => (
+                <FormControlLabel
+                  key={item.asset_id + index}
+                  value={item.asset_id}
+                  control={<Radio color='secondary' />}
+                  label={item.persian_name}
+                  sx={{ width: '100%' }}
+                />
+              ))}
+            </RadioGroup>
+          )}
+        </Stack>
         {orderType === 'buy' ? (
           <CustomInput
-      
             placeholder='مبلغ(تومان)'
             value={amount}
             helperText={
@@ -183,7 +180,7 @@ const {mutate}=useCreateOrder();
         )}
 
         <Stack width='100%' alignItems='end'>
-          {orderType ==='buy' ? (
+          {orderType === 'buy' ? (
             <CustomButton text='+ شارژ حساب' variant='text' color='secondary' />
           ) : (
             <Typography color='text.secondary' variant='subtitle2'>
@@ -199,7 +196,7 @@ const {mutate}=useCreateOrder();
           </Stack>
         )}
 
-        {orderType === 'sell' && numberOfUnits && assetSell  && (
+        {orderType === 'sell' && numberOfUnits && assetSell && (
           <Stack className={classes.navBox}>
             <RowNAV label='مبلغ سفارش' value={String(assetSell?.net_income)} unit='تومان' />
             <RowNAV label='نرخ NAV' value={String(assetSell?.nav)} unit='تومان' />
@@ -212,7 +209,11 @@ const {mutate}=useCreateOrder();
           <Stack className={classes.navBox}>
             <RowNAV label='نرخ NAV' value={String(assetBuyValue?.nav)} unit='تومان' />
             <RowNAV label='کارمزد' value={String(assetBuyValue?.fee)} unit='تومان' />
-            <RowNAV label='تعداد قابل خرید' value={String(assetBuyValue?.units_might_bought)} unit='واحد' />
+            <RowNAV
+              label='تعداد قابل خرید'
+              value={String(assetBuyValue?.units_might_bought)}
+              unit='واحد'
+            />
           </Stack>
         )}
       </Stack>

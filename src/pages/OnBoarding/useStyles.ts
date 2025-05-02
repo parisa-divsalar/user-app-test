@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     height: '100%',
     maxHeight: '45vh',
-    objectFit:'cover',
+    objectFit: 'cover',
 
     '@media(max-width: 579px)': {
       maxHeight: '45vh',
@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
   content: {
     width: '100%',
     height: '100%',
-    maxHeight:'100vh',
+    maxHeight: '100vh',
     overflowY: 'hidden',
     overflowX: 'hidden',
   },

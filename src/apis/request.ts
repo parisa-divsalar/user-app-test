@@ -1,13 +1,7 @@
-import {
-  AxiosError,
-  AxiosRequestConfig,
-  AxiosResponse,
-  CanceledError,
-} from 'axios';
+import { AxiosError, AxiosRequestConfig, AxiosResponse, CanceledError } from 'axios';
 import { toast } from 'react-toastify';
 import { axiosAgent } from './agent';
 import { isBrowser } from '@/hooks/useIsomorphicLayoutEffect';
-
 
 interface IRequest<B, C> {
   showError?: boolean;
@@ -17,7 +11,6 @@ interface IRequest<B, C> {
   config?: C;
   params?: Record<string, any>;
 }
-
 
 export interface RequestErrorExceptionType<R = any> {
   success: boolean;
@@ -43,11 +36,7 @@ export class ResponseError extends Error implements RequestErrorExceptionType {
  * @template C => Request Response (Response)
  * @template B => Request Body (Body)
  */
-export const sendRequest = async <
-  T = any,
-  R = any,
-  B = Record<string, any> | string,
->({
+export const sendRequest = async <T = any, R = any, B = Record<string, any> | string>({
   showError = false,
   method = 'get',
   body,
@@ -119,9 +108,7 @@ export const sendRequest = async <
       console.error('Error', error.message, error);
 
       if (error.response?.data) {
-        toast.error(
-          `Error: ${error.response?.data.message || error.response?.data.error}`,
-        );
+        toast.error(`Error: ${error.response?.data.message || error.response?.data.error}`);
       } else {
         if (!(error instanceof CanceledError)) {
           toast.error(`Error: ${error.message}`);

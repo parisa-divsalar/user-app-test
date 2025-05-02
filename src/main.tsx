@@ -14,24 +14,24 @@ import '@/assets/styles/style.scss';
 import '@/config/configAxios.ts';
 import Loading from '@/components/Loading';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 const Root = () => {
   return (
     <QueryClientProvider client={queryClient}>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <MuiThemeProvider>
-          <CssBaseline />
-          <CustomSnackbar />
-          <Suspense fallback={<Loading />}>
-            <Router basename='/'>
-              <App />
-            </Router>
-          </Suspense>
-        </MuiThemeProvider>
-      </PersistGate>
-    </Provider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <MuiThemeProvider>
+            <CssBaseline />
+            <CustomSnackbar />
+            <Suspense fallback={<Loading />}>
+              <Router basename='/'>
+                <App />
+              </Router>
+            </Suspense>
+          </MuiThemeProvider>
+        </PersistGate>
+      </Provider>
     </QueryClientProvider>
   );
 };
