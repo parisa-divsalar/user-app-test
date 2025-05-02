@@ -19,7 +19,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         {!neverShowAppBar.includes(pathname) && <AppBar />}
 
         <Box className={classes.childrenContent}>{children}</Box>
-
+    
         {showBottomNavigation.includes(pathname) && <BottomTabNavigation />}
       </Box>
     </main>

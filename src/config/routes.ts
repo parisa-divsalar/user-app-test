@@ -8,7 +8,8 @@ export const PublicRoutes = {
   accountDocuments: '/account/documents',
   accountAuthentication: '/account/authentication',
   accountResult: '/account/result',
-  uploadDocument:'/account/upload-document'
+  uploadDocument:'/account/upload-document',
+  uploadedFile:'/account/uploaded-file'
 };
 
 export const PrivateRoutes = {
@@ -45,7 +46,8 @@ export const neverShowAppBar = [
   PrivateRoutes.dashboard,
   PrivateRoutes.menu,
   PublicRoutes.accountResult,
-  PublicRoutes.uploadDocument
+  PublicRoutes.uploadDocument,,
+
 ];
 
 export const showBottomNavigation = [PrivateRoutes.dashboard, PrivateRoutes.menu];

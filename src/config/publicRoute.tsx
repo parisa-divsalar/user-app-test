@@ -13,6 +13,7 @@ import {
 } from '@/pages';
 import { PublicRoutes } from '@/config/routes.ts';
 import UploadDocument from '@/pages/Account/upload-document';
+import UploadedFile from '@/pages/Account/uploaded-file';
 
 const PublicRoute = () => {
   return (
@@ -28,6 +29,7 @@ const PublicRoute = () => {
       <Route path={PublicRoutes.accountAuthentication} element={<AccountAuthentication />} />
       <Route path={PublicRoutes.accountResult} element={<AccountResult />} />
       <Route path={PublicRoutes.uploadDocument} element={<UploadDocument/>} />
+      <Route path={PublicRoutes.uploadedFile} element={<UploadedFile/>} />
     </Routes>
   );
 };
