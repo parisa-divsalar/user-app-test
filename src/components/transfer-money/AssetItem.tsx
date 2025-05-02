@@ -8,7 +8,7 @@ export const AssetItem: FC<AssetsList> = ({
   progressValue,
   title,
   uniteNumber,
-  maskIcon,
+
 }) => {
   const { assetItem, assetTitle, progressBar, progressValueStyle } = useStyles();
   return (
