@@ -9,7 +9,8 @@ export const PublicRoutes = {
   accountAuthentication: '/account/authentication',
   accountResult: '/account/result',
   uploadDocument:'/account/upload-document',
-  uploadedFile:'/account/uploaded-file'
+  uploadedFile:'/account/uploaded-file',
+ 
 };
 
 export const PrivateRoutes = {
@@ -33,6 +34,7 @@ export const PrivateRoutes = {
   invest: '/invest',
   addInvest: '/invest/add',
   contract: '/contract',
+ transferMoney:'/transferMoney'
 };
 
 export const publicRouteList = Object.values(PublicRoutes);

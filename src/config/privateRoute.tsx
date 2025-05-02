@@ -22,6 +22,7 @@ import {
   AddInvest,
 } from '@/pages';
 import { PrivateRoutes } from '@/config/routes.ts';
+import TransferMoney from '@/pages/transfer-money';
 
 const PrivateRoute = () => {
   return (
@@ -46,6 +47,7 @@ const PrivateRoute = () => {
       <Route path={PrivateRoutes.viewTicket} element={<ViewTicket />} />
       <Route path={PrivateRoutes.invest} element={<Invest />} />
       <Route path={PrivateRoutes.addInvest} element={<AddInvest />} />
+      <Route path={PrivateRoutes.transferMoney} element={<TransferMoney/>} />
     </Routes>
   );
 };
