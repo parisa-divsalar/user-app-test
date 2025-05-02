@@ -7,8 +7,8 @@ import { TransactionItem } from '@/components/transaction/TransactionItem';
 
 const Transaction = () => {
   const { transActionContainer, diagram, filterGroup, transactionTitle } = useTransactionStyles();
-// const {data:userUpdata}=useUpdateStep('step2');
-// console.log('userUpdata',userUpdata)
+  // const {data:userUpdata}=useUpdateStep('step2');
+  // console.log('userUpdata',userUpdata)
   return (
     <div className={transActionContainer}>
       <img className={diagram} alt='diagram' src='/diagram.svg' />
