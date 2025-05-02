@@ -10,12 +10,15 @@ export const AssetItem: FC<AssetsList> = ({
   uniteNumber,
   maskIcon,
 }) => {
-  const { assetItem, assetTitle } = useStyles();
+  const { assetItem, assetTitle, progressBar, progressValueStyle } = useStyles();
   return (
     <div style={{ backgroundColor: backgroundColor }} className={assetItem}>
       <h2 className={assetTitle}>{title}</h2>
       <p style={{ padding: '0', margin: '0' }}> تعداد واحد : {uniteNumber}</p>
       <p style={{ padding: '0', margin: '0' }}>{inventory}</p>
+      <div className={progressBar}>
+        <div className={progressValueStyle} style={{ width: `${progressValue}%` }}></div>
+      </div>
     </div>
   );
 };

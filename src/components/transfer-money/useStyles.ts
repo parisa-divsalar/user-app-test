@@ -77,6 +77,17 @@ const useStyles = makeStyles(() => ({
     margin: '0',
     padding: '0',
   },
+  progressBar: {
+    width: '100%',
+    height: '6px',
+    backgroundColor: '#eee',
+    borderRadius: '10px',
+    overflow: 'hidden',
+  },
+  progressValueStyle: {
+    backgroundColor: '#aaa',
+    height: '100%',
+  },
 }));
 
 export default useStyles;
