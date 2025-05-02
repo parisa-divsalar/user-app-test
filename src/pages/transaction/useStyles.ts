@@ -6,7 +6,7 @@ const useTransactionStyles = makeStyles(() => ({
   },
   diagram: {
     width: '100%',
-    minWidth: '361px',
+    minWidth: '320px',
     maxHeight: '520px',
     objectFit: 'cover',
   },
