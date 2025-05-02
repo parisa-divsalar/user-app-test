@@ -107,6 +107,9 @@ const helperMapping: any = {
   '/transferMoney': {
     message: 'انتقال',
   },
+  '/transaction': {
+    message: 'تراکنش ها',
+  },
 };
 
 export const typeMappingHandler = (key: string) => {

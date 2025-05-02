@@ -33,6 +33,7 @@ export const PrivateRoutes = {
   invest: '/invest',
   addInvest: '/invest/add',
   contract: '/contract',
+  transaction: '/transaction',
   transferMoney: '/transferMoney',
   transmissionSourceSwitcher: '/transferMoney/transmissionSourceSwitcher',
 };

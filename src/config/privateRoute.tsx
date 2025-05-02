@@ -24,6 +24,7 @@ import {
 import { PrivateRoutes } from '@/config/routes.ts';
 import TransferMoney from '@/pages/transfer-money';
 import TransmissionSourceSwitcher from '@/pages/transfer-money/transmission-source-switcher';
+import Transaction from '@/pages/transaction';
 
 const PrivateRoute = () => {
   return (
@@ -49,6 +50,7 @@ const PrivateRoute = () => {
       <Route path={PrivateRoutes.invest} element={<Invest />} />
       <Route path={PrivateRoutes.addInvest} element={<AddInvest />} />
       <Route path={PrivateRoutes.transferMoney} element={<TransferMoney />} />
+      <Route path={PrivateRoutes.transaction} element={<Transaction />} />
       <Route
         path={PrivateRoutes.transmissionSourceSwitcher}
         element={<TransmissionSourceSwitcher />}

@@ -1,6 +1,5 @@
 import { makeStyles } from '@mui/styles';
 
-
 const useStyles = makeStyles(() => ({
   uploadedImageContainer: {
     marginTop: '19px',
