@@ -52,6 +52,31 @@ const useStyles = makeStyles(() => ({
     fontWeight: 600,
     lineHeight: 'normal',
   },
+  assetsList: {
+    display: 'grid',
+    gap: '16px',
+    gridTemplateColumns: 'repeat(2,1fr)',
+    padding: '0',
+    height: '54%',
+  },
+  assetItem: {
+    display: 'flex',
+    width: '100%',
+    padding: '0 16px',
+    flexDirection: 'column',
+    gap: '6px',
+    flexShrink: 0,
+    borderRadius: '10px',
+    overflow: 'hidden',
+    height: '100%',
+  },
+  assetTitle: {
+    fontWeight: '550',
+    fontSize: '18px',
+    color: 'white',
+    margin: '0',
+    padding: '0',
+  },
 }));
 
 export default useStyles;

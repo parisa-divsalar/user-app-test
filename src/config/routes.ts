@@ -34,6 +34,7 @@ export const PrivateRoutes = {
   addInvest: '/invest/add',
   contract: '/contract',
   transferMoney: '/transferMoney',
+  transmissionSourceSwitcher: '/transferMoney/transmissionSourceSwitcher',
 };
 
 export const publicRouteList = Object.values(PublicRoutes);
@@ -48,8 +49,7 @@ export const neverShowAppBar = [
   PrivateRoutes.menu,
   PublicRoutes.accountResult,
   PublicRoutes.uploadDocument,
-
-  ,
+  PrivateRoutes.transmissionSourceSwitcher,
 ];
 
 export const showBottomNavigation = [PrivateRoutes.dashboard, PrivateRoutes.menu];
@@ -61,4 +61,5 @@ export const widthLayoutRoutes = [
   PublicRoutes.login,
   PrivateRoutes.menu,
   PublicRoutes.uploadDocument,
+  PrivateRoutes.transmissionSourceSwitcher,
 ];

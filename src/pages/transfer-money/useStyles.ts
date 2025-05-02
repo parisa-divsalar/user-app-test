@@ -72,6 +72,41 @@ const useStyles = makeStyles(() => ({
     border: '1px solid #626F86 ',
     borderRadius: '8px',
   },
+  transmissionSourceSwitcherContainer: {
+    width: '100%',
+    height: '100%',
+    background: 'rgba(245, 249, 252, 0.3)',
+    overflow: 'hidden',
+    border: 'none',
+  },
+  transmissionBackButton: {
+    color: '#F5F9FC',
+    textAlign: 'right',
+    fontSize: '20px',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: 'normal',
+    backgroundColor: 'transparent',
+    padding: '0 16px',
+    border: 'none',
+    margin: '16px 0',
+  },
+  container: {
+    borderRadius: '20px',
+    background: ' #172B4D',
+    height: '100%',
+    overflow: 'hidden',
+    padding: '0 16px',
+  },
+  titleText: {
+    color: '#F5F9FC',
+    textAlign: 'center',
+    fontFamily: '"Abar Mid"',
+    fontSize: '16px',
+    fontStyle: 'normal',
+    fontWeight: 600,
+    lineHeight: 'normal',
+  },
 }));
 
 export default useStyles;
