@@ -13,8 +13,8 @@ import { PrivateRoutes } from '@/config/routes.ts';
 export const ServiceList: ServicesType[] = [
   {
     id: generateFakeUUIDv4(),
-    title: 'انتقال ',
-    href: PrivateRoutes.transaction,
+    title: 'برداشت ',
+    href: '/transferMoney',
     icon: arrowUp,
   },
   {
@@ -26,6 +26,7 @@ export const ServiceList: ServicesType[] = [
   {
     id: generateFakeUUIDv4(),
     title: 'تراکنش ها',
+    href: PrivateRoutes.transaction,
     icon: receipt,
   },
   {

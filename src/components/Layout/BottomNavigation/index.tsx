@@ -84,7 +84,7 @@ const BottomTabNavigation = () => {
       <BottomNavigationAction
         classes={{ root: classes.root, selected: classes.selected }}
         label='سرمایه'
-        onClick={() => navigate(PrivateRoutes.transferMoney)}
+        onClick={() => navigate(PrivateRoutes.transmissionSourceSwitcher)}
         icon={<WalletSvg color={getSvgColor('/wallet')} />}
       />
 

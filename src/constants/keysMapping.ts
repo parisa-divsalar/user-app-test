@@ -105,7 +105,7 @@ const helperMapping: any = {
     message: 'ویرایش سفارش',
   },
   '/transferMoney': {
-    message: 'انتقال',
+    message: 'برداشت',
   },
   '/transaction': {
     message: 'تراکنش ها',
