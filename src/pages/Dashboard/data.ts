@@ -14,7 +14,7 @@ export const ServiceList: ServicesType[] = [
   {
     id: generateFakeUUIDv4(),
     title: 'انتقال ',
-    href:PrivateRoutes.transaction,
+    href: PrivateRoutes.transaction,
     icon: arrowUp,
   },
   {

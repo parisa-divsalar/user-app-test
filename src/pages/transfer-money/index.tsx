@@ -16,7 +16,7 @@ const TransferMoney = () => {
     <div className={transferMonyContainer}>
       <div className={transferFrom}>
         <h1 className={transferTitle}>انتقال از</h1>
-        <Link to={'/transferMoney/transmissionSourceSwitcher'} className={transferFromButton}> 
+        <Link to={'/transferMoney/transmissionSourceSwitcher'} className={transferFromButton}>
           <EditIcon />
         </Link>
       </div>
