@@ -1,6 +1,7 @@
 import { EditIcon } from '@/components/UI/Icons/transferMoney/EditIcon';
 import useStyles from './useStyles';
 import { TransferMoneyCard } from '@/components/transfer-money/TransferMoneyCard';
+import { Link } from 'react-router-dom';
 
 const TransferMoney = () => {
   const {
@@ -15,10 +16,9 @@ const TransferMoney = () => {
     <div className={transferMonyContainer}>
       <div className={transferFrom}>
         <h1 className={transferTitle}>انتقال از</h1>
-        <button className={transferFromButton}>
+        <Link to={'/transferMoney/transmissionSourceSwitcher'} className={transferFromButton}> 
           <EditIcon />
-          تغیر مبدا
-        </button>
+        </Link>
       </div>
       <TransferMoneyCard />
       <div className={mount}>

@@ -57,7 +57,7 @@ const useStyles = makeStyles(() => ({
     gap: '16px',
     gridTemplateColumns: 'repeat(2,1fr)',
     padding: '0',
-    height: '54%',
+    height: '35%',
   },
   assetItem: {
     display: 'flex',
