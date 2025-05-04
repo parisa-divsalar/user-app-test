@@ -19,7 +19,7 @@ const Transaction = () => {
     filterTransactionModel,
     lineButton,
   } = useTransactionStyles();
-  const [showFilterModal,setShowFilterModal]=useState(false);
+  const [showFilterModal, setShowFilterModal] = useState(false);
 
   return (
     <div className={transActionContainer}>
@@ -39,53 +39,55 @@ const Transaction = () => {
           <TransactionItem key={i} />
         ))}
       </ul>
-      {showFilterModal && <div className={filterTransactionModelContainer} onClick={()=>setShowFilterModal(false)}>
-        <div className={filterTransactionModel} onClick={(event)=>event.stopPropagation()}>
-          <span className={lineButton}></span>
-          <span className={filterTitle}>فیلتر</span>
-          <DropDown icon={<FlashDownIcon />} title='نوع معامله' />
-          <DropDown icon={<TimeIcon />} title='تاریخ' />
-          <DropDown icon={<FlashDownIcon />} title='نوع تراکنش' />
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px',width:'100%' }}>
-            <button
-              style={{
-                display: 'flex',
-                height: '36px',
-                padding: '8px 6px',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '2px',
-                flex: '1 0 0',
-                border: 'none',
-                outline: 'none',
-                borderRadius: '10px',
-                cursor:'pointer'
-              }}
-            >
-              فیلتر
-            </button>
-            <button
-            onClick={()=>setShowFilterModal(false)}
-              style={{
-                width:'100%',
-                display: 'flex',
-                height: '36px',
-                padding: '8px 6px',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '2px',
-                flex: '1 0 0',
-                border: 'none',
-                outline: 'none',
-                borderRadius: '10px',
-                cursor:'pointer'
-              }}
-            >
-انصراف         
-   </button>
+      {showFilterModal && (
+        <div className={filterTransactionModelContainer} onClick={() => setShowFilterModal(false)}>
+          <div className={filterTransactionModel} onClick={(event) => event.stopPropagation()}>
+            <span className={lineButton}></span>
+            <span className={filterTitle}>فیلتر</span>
+            <DropDown icon={<FlashDownIcon />} title='نوع معامله' />
+            <DropDown icon={<TimeIcon />} title='تاریخ' />
+            <DropDown icon={<FlashDownIcon />} title='نوع تراکنش' />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', width: '100%' }}>
+              <button
+                style={{
+                  display: 'flex',
+                  height: '36px',
+                  padding: '8px 6px',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '2px',
+                  flex: '1 0 0',
+                  border: 'none',
+                  outline: 'none',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                }}
+              >
+                فیلتر
+              </button>
+              <button
+                onClick={() => setShowFilterModal(false)}
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  height: '36px',
+                  padding: '8px 6px',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '2px',
+                  flex: '1 0 0',
+                  border: 'none',
+                  outline: 'none',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                }}
+              >
+                انصراف
+              </button>
+            </div>
           </div>
         </div>
-      </div>}
+      )}
     </div>
   );
 };

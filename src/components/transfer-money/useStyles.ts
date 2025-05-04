@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     backgroundColor: '#0D446B',
     padding: '0px 11px',
-    paddingLeft:'0',
+    paddingLeft: '0',
     gap: '8px',
   },
   banksCardTitle: {
@@ -54,13 +54,12 @@ const useStyles = makeStyles(() => ({
     lineHeight: 'normal',
   },
   assetsList: {
-   gap: "16px",
-  maxHeight: "50%",
-  display: "grid",
-  padding: "0",
-  gridTemplateColumns: "repeat(2, 1fr)",
-  height: "100%"
-
+    gap: '16px',
+    maxHeight: '50%',
+    display: 'grid',
+    padding: '0',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    height: '100%',
   },
   assetItem: {
     display: 'flex',

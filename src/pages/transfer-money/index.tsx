@@ -12,9 +12,9 @@ const TransferMoney = () => {
     transferFromButton,
     submitButtonStyle,
     mount,
-    inputStyle
+    inputStyle,
   } = useStyles();
-  const [mountValue,setMountValue]=useState('');
+  const [mountValue, setMountValue] = useState('');
   return (
     <div className={transferMonyContainer}>
       <div className={transferFrom}>
@@ -25,9 +25,13 @@ const TransferMoney = () => {
       </div>
       <TransferMoneyCard />
       <div className={mount}>
-        <input placeholder='مبلغ' className={inputStyle} onChange={(event)=>setMountValue(event.target.value)}/>
+        <input
+          placeholder='مبلغ'
+          className={inputStyle}
+          onChange={(event) => setMountValue(event.target.value)}
+        />
         {/* <span>مبلغ </span> */}
-{mountValue && <span>{Number(mountValue.replace(/,/g, '')).toLocaleString()} تومان</span>}
+        {mountValue && <span>{Number(mountValue.replace(/,/g, '')).toLocaleString()} تومان</span>}
       </div>
       <button className={submitButtonStyle}>تایید و ادامه</button>
     </div>

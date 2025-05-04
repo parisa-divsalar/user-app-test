@@ -1,48 +1,44 @@
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from '@mui/styles';
 
-
-export const useWithdrawalWithShebaNumber=makeStyles(()=>({
-    title:{
- color: " #F5F9FC",
-  textAlign: "right", 
-  fontSize: "14px",
-  fontStyle: "normal",
-  fontWeight: 600,
-  lineHeight: "normal"
-    },
-    inputStyle:{
-  width: "100%",
-  padding: "11px 8px",
-    borderRadius: " 8px",
-  border: "1px solid  #626F86",
-  backgroundColor:'transparent',
-    overflow: "hidden",
-  color: "#F5F9FC",
-  textAlign: "right",
-  textOverflow: "ellipsis",
-  fontSize: "14px",
-  fontStyle: "normal",
-  fontWeight: 600,
-  lineHeight: "normal"
-
-    },
- buttonStyle:{
-  width: "100%",
-  padding: "8px 6px",
-  borderRadius: "10px",
-  background: "#758195",
-  color: " #626F86",
-  fontSize: "14px",
-  fontStyle: "normal",
-  fontWeight: 400,
-  lineHeight: "normal",
-  border:'none',
-  outline:'none',
-  position:'absolute',
-  bottom:0,
-  left:0,
-  cursor:'pointer'
-    }
-    
-
-}))
+export const useWithdrawalWithShebaNumber = makeStyles(() => ({
+  title: {
+    color: ' #F5F9FC',
+    textAlign: 'right',
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: 600,
+    lineHeight: 'normal',
+  },
+  inputStyle: {
+    width: '100%',
+    padding: '11px 8px',
+    borderRadius: ' 8px',
+    border: '1px solid  #626F86',
+    backgroundColor: 'transparent',
+    overflow: 'hidden',
+    color: '#F5F9FC',
+    textAlign: 'right',
+    textOverflow: 'ellipsis',
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: 600,
+    lineHeight: 'normal',
+  },
+  buttonStyle: {
+    width: '100%',
+    padding: '8px 6px',
+    borderRadius: '10px',
+    background: '#758195',
+    color: ' #626F86',
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    lineHeight: 'normal',
+    border: 'none',
+    outline: 'none',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    cursor: 'pointer',
+  },
+}));

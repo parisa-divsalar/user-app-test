@@ -57,13 +57,13 @@ const PrivateRoute = () => {
         path={PrivateRoutes.transmissionSourceSwitcher}
         element={<TransmissionSourceSwitcher />}
       />
-       <Route
+      <Route
         path={PrivateRoutes.withdrawalWithShebaNumber}
-        element={<WithdrawalWithShebaNumber/>}
+        element={<WithdrawalWithShebaNumber />}
       />
-            <Route
+      <Route
         path={PrivateRoutes.destinationWithdrawalTransfer}
-        element={<DestinationWithdrawalTransfer/>}
+        element={<DestinationWithdrawalTransfer />}
       />
     </Routes>
   );

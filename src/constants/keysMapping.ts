@@ -113,7 +113,7 @@ const helperMapping: any = {
   '/withdrawal-with-sheba-number': {
     message: 'برداشت ',
   },
-    '/destination-withdrawal-transfer': {
+  '/destination-withdrawal-transfer': {
     message: 'برداشت ',
   },
 };
