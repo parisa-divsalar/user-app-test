@@ -107,6 +107,19 @@ const useStyles = makeStyles(() => ({
     fontWeight: 600,
     lineHeight: 'normal',
   },
+  inputStyle:{
+    backgroundColor:'transparent',
+    border:'none',
+    outLine:'none',
+      overflow: "hidden",
+  color: " #F5F9FC",
+  textAlign: "right",
+  textOverflow: "ellipsis",
+  fontSize: "14px",
+  fontStyle: "normal",
+  fontWeight: 600,
+  lineHeight: "normal"
+  }
 }));
 
 export default useStyles;
