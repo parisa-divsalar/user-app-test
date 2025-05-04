@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: '1.5rem',
     backgroundColor: 'white',
     overflow: 'hidden',
+    position:'relative',
 
     '@media(max-width: 32rem)': {
       borderRadius: '0',

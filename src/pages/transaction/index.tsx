@@ -5,7 +5,7 @@ import { FilterIcon } from '@/components/UI/Icons/transaction/FilterIcon';
 import { TransactionItem } from '@/components/transaction/TransactionItem';
 
 const Transaction = () => {
-  const { transActionContainer, diagram, filterGroup, transactionTitle } = useTransactionStyles();
+  const { transActionContainer, diagram, filterGroup,filterTitle ,transactionTitle,filterTransactionModelContainer,filterTransactionModel ,lineButton} = useTransactionStyles();
 
   return (
     <div className={transActionContainer}>
@@ -25,6 +25,14 @@ const Transaction = () => {
           <TransactionItem key={i} />
         ))}
       </ul>
+      <div className={filterTransactionModelContainer}>
+     <div className={filterTransactionModel}>
+      <span className={lineButton}></span>
+      <span className={filterTitle}>فیلتر</span>
+      <div className='px-[8px] py-[11px]'></div>
+      </div>
+      </div>
+ 
     </div>
   );
 };
