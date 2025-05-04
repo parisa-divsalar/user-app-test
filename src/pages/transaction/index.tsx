@@ -8,7 +8,17 @@ import { FlashDownIcon } from '@/components/UI/Icons/transferMoney/FlashDownIcon
 import { TimeIcon } from '@/components/UI/Icons/transferMoney/TimeIcon';
 
 const Transaction = () => {
-  const { transActionContainer, diagram, filterGroup,filterTitle,selectFilter ,transactionTitle,filterTransactionModelContainer,filterTransactionModel ,lineButton} = useTransactionStyles();
+  const {
+    transActionContainer,
+    diagram,
+    filterGroup,
+    filterTitle,
+    selectFilter,
+    transactionTitle,
+    filterTransactionModelContainer,
+    filterTransactionModel,
+    lineButton,
+  } = useTransactionStyles();
 
   return (
     <div className={transActionContainer}>
@@ -29,16 +39,51 @@ const Transaction = () => {
         ))}
       </ul>
       <div className={filterTransactionModelContainer}>
-     <div className={filterTransactionModel}>
-      <span className={lineButton}></span>
-      <span className={filterTitle}>فیلتر</span>
-       <DropDown icon={<FlashDownIcon/>} title='نوع معامله'/>
-       <DropDown icon={<TimeIcon/>} title='تاریخ'/>
-        <DropDown icon={<FlashDownIcon/>} title='نوع تراکنش'/>
-
+        <div className={filterTransactionModel}>
+          <span className={lineButton}></span>
+          <span className={filterTitle}>فیلتر</span>
+          <DropDown icon={<FlashDownIcon />} title='نوع معامله' />
+          <DropDown icon={<TimeIcon />} title='تاریخ' />
+          <DropDown icon={<FlashDownIcon />} title='نوع تراکنش' />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px',width:'100%' }}>
+            <button
+              style={{
+                display: 'flex',
+                height: '36px',
+                padding: '8px 6px',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '2px',
+                flex: '1 0 0',
+                border: 'none',
+                outline: 'none',
+                borderRadius: '10px',
+                cursor:'pointer'
+              }}
+            >
+              فیلتر
+            </button>
+            <button
+              style={{
+                width:'100%',
+                display: 'flex',
+                height: '36px',
+                padding: '8px 6px',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '2px',
+                flex: '1 0 0',
+                border: 'none',
+                outline: 'none',
+                borderRadius: '10px',
+                cursor:'pointer'
+              }}
+            >
+انصراف         
+   </button>
+          </div>
+        </div>
       </div>
-      </div>
- 
     </div>
   );
 };
