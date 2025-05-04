@@ -30,15 +30,17 @@ const useTransactionStyles = makeStyles(() => ({
     borderBottom: '1px solid #626F86',
     listStyleType: 'none',
   },
-  transactionIcon: {
-    width: '48px',
-    height: '40px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#34D39940',
-    borderRadius: '100%',
-  },
+transactionIcon: {
+  width: '70px',
+  height: '48px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: '#34D39940',
+  borderRadius: '50%',
+  overflow: 'hidden',
+},
+
   date: {
     color: ' #F5F9FC',
     fontSize: '12px',
