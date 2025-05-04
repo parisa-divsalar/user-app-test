@@ -68,8 +68,26 @@ backgroundColor:'#758195'
   fontStyle: "normal",
   fontWeight: 600,
   lineHeight: "normal"
- }
-
+ },
+//  px-[8px] flex items-center justify-between py-[11px] border border-[#626F86] rounded-[12px]
+selectFilter:{
+  padding:'11px 8px',
+  display:'flex',
+  alignItems:'center',
+  justifyContent:'space-between',
+  gap:'16px',
+  borderRadius:'12px',
+  border:'1px solid #626F86',
+  width:'100%',
+    overflow: "hidden",
+  color: "rgba(245, 249, 252, 0.80)",
+  textOverflow: "ellipsis",
+  fontFamily: '"Abar Mid"',
+  fontSize: "12px",
+  fontStyle: "normal",
+  fontWeight: 400,
+  lineHeight: "normal"
+}
 }));
 
 export default useTransactionStyles;

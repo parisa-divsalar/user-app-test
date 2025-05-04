@@ -3,9 +3,12 @@ import useTransactionStyles from './useStyles';
 import { TransactionFilterButton } from '@/components/transaction/TransactionFilterButton';
 import { FilterIcon } from '@/components/UI/Icons/transaction/FilterIcon';
 import { TransactionItem } from '@/components/transaction/TransactionItem';
+import { DropDown } from '@/components/transaction/DropDown';
+import { FlashDownIcon } from '@/components/UI/Icons/transferMoney/FlashDownIcon';
+import { TimeIcon } from '@/components/UI/Icons/transferMoney/TimeIcon';
 
 const Transaction = () => {
-  const { transActionContainer, diagram, filterGroup,filterTitle ,transactionTitle,filterTransactionModelContainer,filterTransactionModel ,lineButton} = useTransactionStyles();
+  const { transActionContainer, diagram, filterGroup,filterTitle,selectFilter ,transactionTitle,filterTransactionModelContainer,filterTransactionModel ,lineButton} = useTransactionStyles();
 
   return (
     <div className={transActionContainer}>
@@ -29,7 +32,10 @@ const Transaction = () => {
      <div className={filterTransactionModel}>
       <span className={lineButton}></span>
       <span className={filterTitle}>فیلتر</span>
-      <div className='px-[8px] py-[11px]'></div>
+       <DropDown icon={<FlashDownIcon/>} title='نوع معامله'/>
+       <DropDown icon={<TimeIcon/>} title='تاریخ'/>
+        <DropDown icon={<FlashDownIcon/>} title='نوع تراکنش'/>
+
       </div>
       </div>
  
