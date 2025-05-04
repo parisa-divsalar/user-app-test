@@ -6,6 +6,7 @@ import { TransactionItem } from '@/components/transaction/TransactionItem';
 import { DropDown } from '@/components/transaction/DropDown';
 import { FlashDownIcon } from '@/components/UI/Icons/transferMoney/FlashDownIcon';
 import { TimeIcon } from '@/components/UI/Icons/transferMoney/TimeIcon';
+import { useState } from 'react';
 
 const Transaction = () => {
   const {
@@ -13,19 +14,22 @@ const Transaction = () => {
     diagram,
     filterGroup,
     filterTitle,
-    selectFilter,
     transactionTitle,
     filterTransactionModelContainer,
     filterTransactionModel,
     lineButton,
   } = useTransactionStyles();
+  const [showFilterModal,setShowFilterModal]=useState(false);
+const hiddenFilterModal=()=>{
+  setShowFilterModal(false)
+}
 
   return (
     <div className={transActionContainer}>
       <img className={diagram} alt='diagram' src='/diagram.svg' />
       <div className={filterGroup}>
         {TRANSACTION.map((item) => (
-          <TransactionFilterButton key={item.id} {...item} />
+          <TransactionFilterButton key={item.id} onClick={setShowFilterModal} {...item} />
         ))}
       </div>
       <div className={transactionTitle}>
@@ -38,8 +42,8 @@ const Transaction = () => {
           <TransactionItem key={i} />
         ))}
       </ul>
-      <div className={filterTransactionModelContainer}>
-        <div className={filterTransactionModel}>
+      {showFilterModal && <div className={filterTransactionModelContainer} onClick={()=>setShowFilterModal(false)}>
+        <div className={filterTransactionModel} onClick={(event)=>event.stopPropagation()}>
           <span className={lineButton}></span>
           <span className={filterTitle}>فیلتر</span>
           <DropDown icon={<FlashDownIcon />} title='نوع معامله' />
@@ -64,6 +68,7 @@ const Transaction = () => {
               فیلتر
             </button>
             <button
+            onClick={()=>setShowFilterModal(false)}
               style={{
                 width:'100%',
                 display: 'flex',
@@ -83,7 +88,7 @@ const Transaction = () => {
    </button>
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

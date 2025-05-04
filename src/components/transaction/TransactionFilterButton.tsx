@@ -1,7 +1,5 @@
-import { FC } from 'react';
 import useTransactionStyles from './useTransactionStyles';
-import { TransActionType } from '@/type/transaction-type';
-export const TransactionFilterButton: FC<TransActionType> = ({ title }) => {
+export const TransactionFilterButton = ({ title,onClick }:{title:string,onClick:React.Dispatch<React.SetStateAction<boolean>>}) => {
   const { TransactionFilterButton } = useTransactionStyles();
-  return <button className={TransactionFilterButton}>{title}</button>;
+  return <button className={TransactionFilterButton} onClick={()=>onClick(true)}>{title}</button>;
 };
