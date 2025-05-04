@@ -54,11 +54,13 @@ const useStyles = makeStyles(() => ({
     lineHeight: 'normal',
   },
   assetsList: {
-    display: 'grid',
-    gap: '16px',
-    gridTemplateColumns: 'repeat(2,1fr)',
-    padding: '0',
-    height: '35%',
+   gap: "16px",
+  maxHeight: "50%",
+  display: "grid",
+  padding: "0",
+  gridTemplateColumns: "repeat(2, 1fr)",
+  height: "100%"
+
   },
   assetItem: {
     display: 'flex',

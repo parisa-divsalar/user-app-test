@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   headerCardActionArea: {
     display: 'flex !important',
     alignItems: 'center !important',
-    borderRadius: '0.875rem !important',
+    borderRadius: '1.3rem !important',
     width: '95% !important',
   },
 
