@@ -26,6 +26,7 @@ import TransferMoney from '@/pages/transfer-money';
 import TransmissionSourceSwitcher from '@/pages/transfer-money/transmission-source-switcher';
 import Transaction from '@/pages/transaction';
 import WithdrawalWithShebaNumber from '@/pages/withdrawal-with-sheba-number';
+import DestinationWithdrawalTransfer from '@/pages/destination-withdrawal-transfer';
 
 const PrivateRoute = () => {
   return (
@@ -59,6 +60,10 @@ const PrivateRoute = () => {
        <Route
         path={PrivateRoutes.withdrawalWithShebaNumber}
         element={<WithdrawalWithShebaNumber/>}
+      />
+            <Route
+        path={PrivateRoutes.destinationWithdrawalTransfer}
+        element={<DestinationWithdrawalTransfer/>}
       />
     </Routes>
   );

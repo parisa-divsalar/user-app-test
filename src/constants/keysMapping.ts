@@ -113,6 +113,9 @@ const helperMapping: any = {
   '/withdrawal-with-sheba-number': {
     message: 'برداشت ',
   },
+    '/destination-withdrawal-transfer': {
+    message: 'برداشت ',
+  },
 };
 
 export const typeMappingHandler = (key: string) => {
