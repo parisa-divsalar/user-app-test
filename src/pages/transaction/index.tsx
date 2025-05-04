@@ -20,9 +20,6 @@ const Transaction = () => {
     lineButton,
   } = useTransactionStyles();
   const [showFilterModal,setShowFilterModal]=useState(false);
-const hiddenFilterModal=()=>{
-  setShowFilterModal(false)
-}
 
   return (
     <div className={transActionContainer}>

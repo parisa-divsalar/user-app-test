@@ -25,6 +25,7 @@ import { PrivateRoutes } from '@/config/routes.ts';
 import TransferMoney from '@/pages/transfer-money';
 import TransmissionSourceSwitcher from '@/pages/transfer-money/transmission-source-switcher';
 import Transaction from '@/pages/transaction';
+import WithdrawalWithShebaNumber from '@/pages/withdrawal-with-sheba-number';
 
 const PrivateRoute = () => {
   return (
@@ -54,6 +55,10 @@ const PrivateRoute = () => {
       <Route
         path={PrivateRoutes.transmissionSourceSwitcher}
         element={<TransmissionSourceSwitcher />}
+      />
+       <Route
+        path={PrivateRoutes.withdrawalWithShebaNumber}
+        element={<WithdrawalWithShebaNumber/>}
       />
     </Routes>
   );

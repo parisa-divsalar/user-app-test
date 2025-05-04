@@ -36,6 +36,7 @@ export const PrivateRoutes = {
   transaction: '/transaction',
   transferMoney: '/transferMoney',
   transmissionSourceSwitcher: '/transferMoney/transmissionSourceSwitcher',
+  withdrawalWithShebaNumber:'/withdrawal-with-sheba-number',
 };
 
 export const publicRouteList = Object.values(PublicRoutes);
