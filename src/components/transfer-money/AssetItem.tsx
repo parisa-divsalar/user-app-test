@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { AssetsList } from './AssetsList';
 import useStyles from './useStyles';
-import { GoldenMackIcon } from '../UI/Icons/transferMoney/GoldenMackIcon';
-import { SavingMackIcon } from '../UI/Icons/transferMoney/SavingMackIcon';
+
 
 export const AssetItem: FC<AssetsList> = ({
   backgroundColor,
@@ -11,7 +10,7 @@ export const AssetItem: FC<AssetsList> = ({
   title,
   uniteNumber,
   id,
-  maskIcon
+
 }) => {
   const { assetItem, assetTitle, progressBar, progressValueStyle } = useStyles();
 

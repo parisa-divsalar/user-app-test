@@ -8,7 +8,7 @@ const DestinationWithdrawalTransfer = () => {
     <div className={container}>
       <p className={title}>مقصد خود را انتخاب کنید</p>
       <ul style={{ margin: '0', padding: '0' }}>
-        {Array.from({ length: 5 }, (index, value) => (
+        {Array.from({ length: 5 }, ( _,value) => (
           <li className={liStyle} key={value}>
             <BankIcon />
             <div style={{ width: '100%' }}>
