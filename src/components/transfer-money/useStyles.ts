@@ -16,7 +16,8 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     alignItems: 'center',
     backgroundColor: '#0D446B',
-    padding: '22px 11px',
+    padding: '0px 11px',
+    paddingLeft:'0',
     gap: '8px',
   },
   banksCardTitle: {
