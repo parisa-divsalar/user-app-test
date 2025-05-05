@@ -6,9 +6,6 @@ const TransmissionSourceSwitcher = () => {
   const { transmissionSourceSwitcherContainer, container, titleText } = useStyles();
   return (
     <div className={transmissionSourceSwitcherContainer}>
-      {/*<button className={transmissionBackButton}>*/}
-      {/*  <span>انتقال</span>*/}
-      {/*</button>*/}
       <div className={container}>
         <h1 className={titleText}>تغییر مبدا انتقال</h1>
         <TransferMoneyCard />

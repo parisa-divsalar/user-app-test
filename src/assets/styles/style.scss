@@ -20,6 +20,7 @@ body {
   font-feature-settings: "ss02";
   outline: none;
 
+
   &::-webkit-scrollbar{
     background-color: #dadada;
     width: 8px;
@@ -32,6 +33,9 @@ body {
       cursor: grab;
     }
   }
+}
+li{
+  list-style-type: none;
 }
 
 .arial-font {

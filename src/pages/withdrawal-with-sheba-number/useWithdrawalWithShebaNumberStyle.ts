@@ -28,7 +28,7 @@ export const useWithdrawalWithShebaNumber = makeStyles(() => ({
     width: '100%',
     padding: '8px 6px',
     borderRadius: '10px',
-    background: '#758195',
+
     color: ' #626F86',
     fontSize: '14px',
     fontStyle: 'normal',

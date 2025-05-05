@@ -20,7 +20,7 @@ export interface AssetsList {
   maskIcon: ReactNode;
   img: string;
 }
-const ASSETS_LIST_MOCK_DATA: AssetsList[] = [
+export const ASSETS_LIST_MOCK_DATA: AssetsList[] = [
   {
     id: 1,
     title: 'طلا',

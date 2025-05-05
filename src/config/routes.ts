@@ -39,7 +39,7 @@ export const PrivateRoutes = {
   withdrawalWithShebaNumber: '/withdrawal-with-sheba-number',
   destinationWithdrawalTransfer: '/destination-withdrawal-transfer',
   deposit: '/deposit',
-  depositReceipt:'/deposit/depositReceipt'
+  depositReceipt: '/deposit/depositReceipt',
 };
 
 export const publicRouteList = Object.values(PublicRoutes);

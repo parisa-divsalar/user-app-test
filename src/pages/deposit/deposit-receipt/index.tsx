@@ -1,8 +1,5 @@
-
 const DepositReceipt = () => {
-  return (
-    <div>index</div>
-  )
-}
+  return <div>index</div>;
+};
 
-export default DepositReceipt
+export default DepositReceipt;

@@ -38,13 +38,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: 'transparent',
   },
   submitButtonStyle: {
-    display: 'flex',
     width: '100%',
-    height: '44px',
     padding: '8px 6px',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: '2px',
     borderRadius: '10px',
     overflow: 'hidden',
     border: 'none',
@@ -76,8 +71,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   transmissionSourceSwitcherContainer: {
     width: '100%',
     height: '100%',
-    // background: 'rgba(245, 249, 252, 0.3)',
-    // backgroundColor: theme.palette.background.default,
 
     overflow: 'hidden',
     border: 'none',

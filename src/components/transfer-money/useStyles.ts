@@ -11,8 +11,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     lineHeight: 'normal',
     borderRadius: '12px',
     overflow: 'hidden',
-    marginBottom: '32px',
+    marginBottom: '16px',
     backgroundColor: theme.palette.background.default,
+    width: '100%',
+    overFlow: 'hidden',
   },
   cardInfo: {
     display: 'flex',
@@ -21,6 +23,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: '0px 11px',
     paddingLeft: '0',
     gap: '8px',
+    rounded: '10px',
+    overflow: 'hidden',
   },
   banksCardTitle: {
     color: ' #FDFDFD',
@@ -39,7 +43,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontStyle: 'normal',
     fontWeight: 400,
     lineHeight: 'normal',
+    margin: 0,
+    padding: 0,
   },
+
   inventory: {
     display: 'flex',
     alignItems: 'center',
@@ -52,7 +59,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: '14px',
     fontWeight: 'bold',
     color: theme.palette.text.primary,
-
   },
   assetsList: {
     gap: '16px',
@@ -70,7 +76,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexShrink: 0,
     borderRadius: '10px',
     overflow: 'hidden',
-    height: '100%',
   },
   assetTitle: {
     marginTop: '1rem',

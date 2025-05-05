@@ -23,7 +23,9 @@ const Deposit = () => {
   return (
     <div className={depositContainer}>
       <form className={form}>
-        <Typography component='label' color="text.primary" variant='subtitle1' htmlFor='amount'>مبلغ</Typography>
+        <Typography component='label' color='text.primary' variant='subtitle1' htmlFor='amount'>
+          مبلغ
+        </Typography>
         <div className={formGroup}>
           <input
             id='amount'
@@ -32,11 +34,16 @@ const Deposit = () => {
             placeholder='مبلغ واریزی'
             value={amount}
           />
-          {amount && <Typography component='span' variant='subtitle2' color='text.primary'>{amount} تومان</Typography>}
+          {amount && (
+            <Typography component='span' variant='subtitle2' color='text.primary'>
+              {amount} تومان
+            </Typography>
+          )}
         </div>
         <div className={submitButton}>
-
-        <CustomButton className={submitButton} color='secondary' >تایید و ادامه</CustomButton>
+          <CustomButton className={submitButton} color='secondary'>
+            تایید و ادامه
+          </CustomButton>
         </div>
       </form>
     </div>

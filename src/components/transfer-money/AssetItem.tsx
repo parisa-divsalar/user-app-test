@@ -29,7 +29,7 @@ export const AssetItem: FC<AssetsList> = ({
         src={img}
         alt=''
         width='120'
-        height={105}
+        height={90}
         style={{
           display: 'flex',
           marginRight: '50%',

@@ -1,20 +1,30 @@
 import { DotsIcon } from '@/components/UI/Icons/transferMoney/DotsIcon';
 import { useDestinationWithdrawalTransferStyle } from './useDestinationWithdrawalTransferStyle';
 import { BankIcon } from '@/components/UI/Icons/transferMoney/BankIcon';
+import { Typography } from '@mui/material';
 
 const DestinationWithdrawalTransfer = () => {
   const { title, liStyle, submitButtonStyle, container } = useDestinationWithdrawalTransferStyle();
   return (
     <div className={container}>
       <p className={title}>مقصد خود را انتخاب کنید</p>
-      <ul style={{ margin: '0', padding: '0' }}>
+      <ul
+        style={{
+          margin: '0',
+          padding: '0',
+          height: 'calc(100% - 100px)',
+          overflowY: 'auto',
+        }}
+      >
+        {' '}
         {Array.from({ length: 5 }, (_, value) => (
           <li className={liStyle} key={value}>
             <BankIcon />
             <div style={{ width: '100%' }}>
-              <p
-                style={{
-                  color: 'var(--Typography-Primary, #F5F9FC)',
+              <Typography
+              color='text.primary'
+                sx={{
+                
                   textAlign: 'right',
                   fontFamily: '"Abar Low"',
                   fontSize: '14px',
@@ -27,7 +37,7 @@ const DestinationWithdrawalTransfer = () => {
                 }}
               >
                 فرزاد بخشی زاده
-              </p>
+              </Typography>
               <p
                 style={{
                   margin: '0',

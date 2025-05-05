@@ -20,7 +20,7 @@ interface PrimaryButtonProps {
   children?: any;
   href?: string;
   theme?: 'default';
-  className?:string
+  className?: string;
 }
 
 const CustomButton = (props: PrimaryButtonProps) => {
@@ -38,7 +38,7 @@ const CustomButton = (props: PrimaryButtonProps) => {
     fullWidth,
     children,
     href,
-    className
+    className,
   } = props;
 
   return (
