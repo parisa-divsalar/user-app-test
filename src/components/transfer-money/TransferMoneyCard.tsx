@@ -23,9 +23,7 @@ export const TransferMoneyCard = () => {
         </div>
         <LineCardIcon />
       </div>
-      <stack
-           className={inventory}
-      >
+      <stack className={inventory}>
         <Typography color='text.primary'>
           پول نقد
         </Typography>

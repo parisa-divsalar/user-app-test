@@ -15,7 +15,7 @@ const Deposit = () => {
             className={formInputStyle}
             placeholder='مبلغ واریزی'
           />
-          {amount && <span>{amount} تومان</span>}
+{amount && <span>{Number(amount).toLocaleString()} تومان</span>}
         </div>
         <button className={submitButton}>تایید و ادامه</button>
       </form>
