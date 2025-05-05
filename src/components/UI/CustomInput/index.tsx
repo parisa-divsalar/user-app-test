@@ -29,6 +29,7 @@ interface CustomInputProps {
   multiline?: boolean;
   ignoreNumeric?: boolean;
   readOnly?: boolean;
+  className?:string,
 }
 
 const CustomInput: FunctionComponent<CustomInputProps> = (props) => {

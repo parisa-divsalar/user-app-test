@@ -3,6 +3,7 @@ import useStyles from './useStyles';
 import { TransferMoneyCard } from '@/components/transfer-money/TransferMoneyCard';
 import { useState } from 'react';
 import { Typography } from '@mui/material';
+import CustomInput from '@/components/UI/CustomInput';
 import CustomButton from '@/components/UI/CustomButton';
 import { ChangOriginModal } from '@/components/transfer-money/ChangOriginModal';
 import { TransferMoneyNotification } from '@/components/transfer-money/TransferMoneyNotification';
@@ -34,8 +35,8 @@ const TransferMoney = () => {
   return (
     <div className={transferMonyContainer}>
       <div className={transferFrom}>
-        <Typography variant="subtitle2" color="text.primary">
-          انتقال از
+        <Typography variant='subtitle1' color='text.primary'>
+          برداشت از
         </Typography>
         <CustomButton
           variant="text"
@@ -46,16 +47,16 @@ const TransferMoney = () => {
         </CustomButton>
       </div>
       <TransferMoneyCard />
-      <div className={mount}>
-        <input
-          placeholder="مبلغ"
+      {/*<div className={mount}>*/}
+        <CustomInput
+          placeholder='مبلغ'
           className={inputStyle}
           value={mountValue}
-          onChange={handleInputChange}
+          onChangeHandler={handleInputChange}
           inputMode="numeric"
         />
-        {mountValue && <span>{Number(mountValue.replace(/,/g, '')).toLocaleString()} تومان</span>}
-      </div>
+      {/*  {mountValue && <span>{Number(mountValue.replace(/,/g, '')).toLocaleString()} تومان</span>}*/}
+      {/*</div>*/}
       <div className={submitButtonStyle}>
         <CustomButton
           onClick={() => setShowNotification(true)}

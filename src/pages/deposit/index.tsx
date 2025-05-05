@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDepositStyles } from './useDepositStyles';
+import CustomInput from '@/components/UI/CustomInput';
 import CustomButton from '@/components/UI/CustomButton';
 import { Typography } from '@mui/material';
 
@@ -26,20 +27,20 @@ const Deposit = () => {
         <Typography component='label' color='text.primary' variant='subtitle1' htmlFor='amount'>
           مبلغ
         </Typography>
-        <div className={formGroup}>
-          <input
+        {/*<div className={formGroup}>*/}
+          <CustomInput
             id='amount'
             onChange={handleChange}
             className={formInputStyle}
             placeholder='مبلغ واریزی'
             value={amount}
           />
-          {amount && (
-            <Typography component='span' variant='subtitle2' color='text.primary'>
-              {amount} تومان
-            </Typography>
-          )}
-        </div>
+        {/*  {amount && (*/}
+        {/*    <Typography component='span' variant='subtitle2' color='text.primary'>*/}
+        {/*      {amount} تومان*/}
+        {/*    </Typography>*/}
+        {/*  )}*/}
+        {/*</div>*/}
         <div className={submitButton}>
           <CustomButton className={submitButton} color='secondary'>
             تایید و ادامه

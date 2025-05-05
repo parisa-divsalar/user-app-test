@@ -7,7 +7,7 @@ const TransmissionSourceSwitcher = () => {
   return (
     <div className={transmissionSourceSwitcherContainer}>
       <div className={container}>
-        <h1 className={titleText}>تغییر مبدا انتقال</h1>
+        {/*<h1 className={titleText}>تغییر مبدا انتقال</h1>*/}
         <TransferMoneyCard />
         <AssetsList />
       </div>
