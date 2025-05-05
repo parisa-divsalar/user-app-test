@@ -59,7 +59,7 @@ const OnBoarding = () => {
                 letterSpacing='2px'
                 textAlign='justify'
                 variant='subtitle1'
-                fontSize='1.4rem'
+                fontSize='1rem'
                 fontWeight='500'
                 px='2.5rem'
                 mt={3}

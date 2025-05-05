@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CircularProgress, Stack, Typography } from '@mui/material';
-import logo from '@/assets/images/logo/logo.svg';
+import logo from '@/assets/images/logo/Group 1.svg';
 import packageJson from '../../../package.json';
 
 import AddToHomeScreen from '@/pages/Auth/AddToHomeScreen';

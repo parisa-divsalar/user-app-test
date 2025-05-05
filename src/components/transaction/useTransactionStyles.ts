@@ -32,7 +32,7 @@ const useTransactionStyles = makeStyles(() => ({
   },
   transactionIcon: {
     width: '70px',
-    height: '48px',
+    height: '38px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

@@ -8,17 +8,19 @@
   font-family: 'AbarLowFaNum';
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/woff/AbarMid-Regular.otf') format('otf'),
-       url('../fonts/woff2/AbarMid-Regular.ttf') format('ttf');
+  src: url('../fonts/otf/AbarMid-Regular.otf') format('otf'),
+       url('../fonts/ttf/AbarMid-Regular.ttf') format('ttf');
 }
 
 @font-face {
-  font-family: 'Arial';
+  font-family: 'AbarLowFaNum';
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/woff/Arial.woff') format('woff'),
-  url('../fonts/woff2/Arial.woff2') format('woff2');
+  src: url('../fonts/Webfonts/woff/AbarMid-Regular.woff') format('woff'),
+  url('../fonts/Webfonts/woff2/AbarMid-Regular.woff2') format('woff2');
 }
+
+
 * {
   font-family: 'AbarLowFaNum', Arial!important;
 }

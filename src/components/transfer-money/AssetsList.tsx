@@ -5,6 +5,11 @@ import { GoldenMackIcon } from '../UI/Icons/transferMoney/GoldenMackIcon';
 import { SavingMackIcon } from '../UI/Icons/transferMoney/SavingMackIcon';
 import { HouseMackIcon } from '../UI/Icons/transferMoney/HouseMackIcon';
 import { StockMarketIcon } from '../UI/Icons/transferMoney/StockMarketIcon';
+import s1 from '@/assets/images/bg/Group1.png';
+import s2 from '@/assets/images/bg/Group2.png';
+import s3 from '@/assets/images/bg/Group3.png';
+import s4 from '@/assets/images/bg/Group4.png';
+
 
 export interface AssetsList {
   id: number;
@@ -14,6 +19,7 @@ export interface AssetsList {
   progressValue: number;
   backgroundColor: string;
   maskIcon: ReactNode;
+  img:string;
 }
 const ASSETS_LIST_MOCK_DATA: AssetsList[] = [
   {
@@ -22,17 +28,20 @@ const ASSETS_LIST_MOCK_DATA: AssetsList[] = [
     uniteNumber: 0,
     inventory: '0',
     progressValue: 50,
-    backgroundColor: '#3032AD',
+    backgroundColor: '#6F71D2',
     maskIcon: <GoldenMackIcon />,
+    img: s1,
   },
   {
     id: 2,
     title: 'پس انداز',
     uniteNumber: 16,
-    inventory: ' ت',
+    inventory: ' 0',
     progressValue: 50,
-    backgroundColor: '#E56523',
+    backgroundColor: '#f19667',
     maskIcon: <SavingMackIcon />,
+    img: s2,
+
   },
   {
     id: 3,
@@ -40,8 +49,10 @@ const ASSETS_LIST_MOCK_DATA: AssetsList[] = [
     uniteNumber: 0,
     inventory: '0',
     progressValue: 50,
-    backgroundColor: '#A3AC4D',
+    backgroundColor: '#767e24',
     maskIcon: <HouseMackIcon />,
+    img: s3,
+
   },
   {
     id: 4,
@@ -49,8 +60,10 @@ const ASSETS_LIST_MOCK_DATA: AssetsList[] = [
     uniteNumber: 0,
     inventory: '0 ت',
     progressValue: 50,
-    backgroundColor: '#2283AD',
+    backgroundColor: '#0d446b',
     maskIcon: <StockMarketIcon />,
+    img: s4,
+
   },
 ];
 

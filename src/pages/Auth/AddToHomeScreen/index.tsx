@@ -42,7 +42,7 @@ const AddToHomeScreen: FunctionComponent<AddToHomeScreenProps> = (props) => {
             <img src={share} alt='' />
             <Typography color='text.primary' variant='subtitle1' fontWeight='normal'>
               در نوار پایین روی دکمه
-              <Typography component='span' color='text.primary' px={0.5}>
+              <Typography component='span' color='text.primary' px={0.2}>
                 Share
               </Typography>
               بزنید.

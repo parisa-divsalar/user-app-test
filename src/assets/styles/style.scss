@@ -124,6 +124,8 @@ legend {}
   height: 0.65rem;
   width: 1.75rem;
   margin-right: 0.65rem;
+  margin-bottom: 4rem;
+
 
   button {
     width: 100%;
@@ -146,5 +148,4 @@ legend {}
   display: none;
 }
 [class*='mainOnBoarding'] .slick-dots li.slick-active button {
-  background-color: #2283AD;
 }

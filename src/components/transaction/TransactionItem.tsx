@@ -1,5 +1,6 @@
 import { ArrowDownIcon } from '../UI/Icons/transaction/ArrowDownIcon';
 import useTransactionStyles from './useTransactionStyles';
+import {Typography} from "@mui/material";
 
 export const TransactionItem = () => {
   const { transactionItem, transactionIcon, date } = useTransactionStyles();
@@ -9,10 +10,10 @@ export const TransactionItem = () => {
         <ArrowDownIcon />
       </span>
       <div style={{ width: '100%' }}>
-        <p style={{ margin: '0', padding: '0' }}>برداشت کارمزد</p>
-        <p className={date}>سه‌شنبه، ۱۴ اردیبهشت ۱۴۰۲ &#x2022; ۲۲:۳۵</p>
+          <Typography color='text.primary' style={{ margin: '0', padding: '0' ,fontWeight:'bold'}}>واریز به حساب </Typography>
+        <Typography color='text.primary' style={{fontSize:'12px'}} className={date}>سه‌شنبه، ۱۴ اردیبهشت ۱۴۰۲ &#x2022; ۲۲:۳۵</Typography>
       </div>
-      <span style={{ textWrap: 'nowrap', alignSelf: 'start' }}>۴۲۰,۰۰۰,۰۰۰ ت</span>
+      <Typography color='text.primary' style={{ textWrap: 'nowrap', alignSelf: 'start' }}>۴۲۰,۰۰۰,۰۰۰ ت</Typography>
     </li>
   );
 };

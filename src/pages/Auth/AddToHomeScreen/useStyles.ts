@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '1.125rem 1rem',
+    padding: '1rem 1rem',
   },
 
   paper: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
   content: {
     flexGrow: '1',
-    padding: '1rem',
+    padding: '0.1rem',
     alignItems: 'center',
     textAlign: 'center',
   },

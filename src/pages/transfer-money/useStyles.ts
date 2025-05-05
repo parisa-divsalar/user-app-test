@@ -1,6 +1,8 @@
 import { makeStyles } from '@mui/styles';
+import { Theme } from '@mui/material';
 
-const useStyles = makeStyles(() => ({
+
+const useStyles = makeStyles((theme: Theme) => ({
   transferMonyContainer: {
     height: '100%',
     maxHeight: '100%',
@@ -75,7 +77,9 @@ const useStyles = makeStyles(() => ({
   transmissionSourceSwitcherContainer: {
     width: '100%',
     height: '100%',
-    background: 'rgba(245, 249, 252, 0.3)',
+    // background: 'rgba(245, 249, 252, 0.3)',
+    // backgroundColor: theme.palette.background.default,
+
     overflow: 'hidden',
     border: 'none',
   },
@@ -93,13 +97,13 @@ const useStyles = makeStyles(() => ({
   },
   container: {
     borderRadius: '20px',
-    background: ' #172B4D',
+    backgroundColor: theme.palette.background.default,
     height: '100%',
     overflow: 'hidden',
     padding: '0 16px',
   },
   titleText: {
-    color: '#F5F9FC',
+    color: theme.palette.text.primary,
     textAlign: 'center',
     fontFamily: '"Abar Mid"',
     fontSize: '16px',
@@ -112,7 +116,7 @@ const useStyles = makeStyles(() => ({
     border: 'none',
     outLine: 'none',
     overflow: 'hidden',
-    color: ' #F5F9FC',
+    color: theme.palette.text.primary,
     textAlign: 'right',
     textOverflow: 'ellipsis',
     fontSize: '14px',
