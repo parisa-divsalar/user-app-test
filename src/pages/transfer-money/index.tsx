@@ -6,6 +6,7 @@ import { Typography } from '@mui/material';
 import CustomButton from '@/components/UI/CustomButton';
 import { ChangOriginModal } from '@/components/transfer-money/ChangOriginModal';
 import { TransferMoneyNotification } from '@/components/transfer-money/TransferMoneyNotification';
+
 const TransferMoney = () => {
   const {
     transferMonyContainer,
@@ -15,20 +16,29 @@ const TransferMoney = () => {
     mount,
     inputStyle,
   } = useStyles();
+
   const [mountValue, setMountValue] = useState('');
-  const [openChangeOriginModal, setOpenChangeOriginModal] = useState<boolean>(false);
-  const [showNotification, setShowNotification] = useState<boolean>(false);
+  const [openChangeOriginModal, setOpenChangeOriginModal] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const numericValue = event.target.value.replace(/[^0-9]/g, '');
+    const formattedValue = numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    setMountValue(formattedValue);
+  };
+
   const handleOpenModal = () => setOpenChangeOriginModal(false);
 
   const handleShowNotification = () => setShowNotification(false);
+
   return (
     <div className={transferMonyContainer}>
       <div className={transferFrom}>
-        <Typography variant='subtitle2' color='text.primary'>
+        <Typography variant="subtitle2" color="text.primary">
           انتقال از
         </Typography>
         <CustomButton
-          variant='text'
+          variant="text"
           onClick={() => setOpenChangeOriginModal(true)}
           className={transferFromButton}
         >
@@ -38,17 +48,24 @@ const TransferMoney = () => {
       <TransferMoneyCard />
       <div className={mount}>
         <input
-          placeholder='مبلغ'
+          placeholder="مبلغ"
           className={inputStyle}
-          onChange={(event) => setMountValue(event.target.value)}
+          value={mountValue}
+          onChange={handleInputChange}
+          inputMode="numeric"
         />
         {mountValue && <span>{Number(mountValue.replace(/,/g, '')).toLocaleString()} تومان</span>}
       </div>
       <div className={submitButtonStyle}>
-        <CustomButton onClick={() => setShowNotification(true)} color='secondary' fullWidth>
+        <CustomButton
+          onClick={() => setShowNotification(true)}
+          color="secondary"
+          fullWidth
+        >
           تایید و ادامه
         </CustomButton>
       </div>
+
       {openChangeOriginModal && <ChangOriginModal handleOpenModal={handleOpenModal} />}
       {showNotification && <TransferMoneyNotification onClick={handleShowNotification} />}
     </div>

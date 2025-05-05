@@ -4,7 +4,7 @@ export const useDestinationWithdrawalTransferStyle = makeStyles(() => ({
   container: {
     position: 'relative',
     height: '96%',
-    padding:'0 8px'
+    padding: '0 8px',
   },
   title: {
     color: ' #F5F9FC',
@@ -25,6 +25,7 @@ export const useDestinationWithdrawalTransferStyle = makeStyles(() => ({
     borderRadius: '10px',
     background: ' #12284C',
     boxShadow: '0px 0px 10px 0px rgba(13, 68, 107, 0.10)',
+    marginTop: '10px',
   },
   submitButtonStyle: {
     width: '100%',
