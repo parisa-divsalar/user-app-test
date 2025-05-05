@@ -14,18 +14,12 @@ const TransferMoney = () => {
     transferFrom,
     transferFromButton,
     submitButtonStyle,
-    inputStyle,
   } = useStyles();
 
-  const [mountValue, setMountValue] = useState('');
   const [openChangeOriginModal, setOpenChangeOriginModal] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const numericValue = event.target.value.replace(/[^0-9]/g, '');
-    const formattedValue = numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    setMountValue(formattedValue);
-  };
+
 
   const handleOpenModal = () => setOpenChangeOriginModal(false);
 
@@ -49,7 +43,6 @@ const TransferMoney = () => {
       {/*<div className={mount}>*/}
         <CustomInput
           placeholder='مبلغ'
-          onChangeHandler={handleInputChange}
           inputMode="numeric"
         />
       {/*  {mountValue && <span>{Number(mountValue.replace(/,/g, '')).toLocaleString()} تومان</span>}*/}

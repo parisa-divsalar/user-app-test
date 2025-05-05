@@ -1,4 +1,3 @@
-import { DotsIcon } from '@/components/UI/Icons/transferMoney/DotsIcon';
 import { useDestinationWithdrawalTransferStyle } from './useDestinationWithdrawalTransferStyle';
 import { BankIcon } from '@/components/UI/Icons/transferMoney/BankIcon';
 import { Typography } from '@mui/material';
@@ -9,7 +8,7 @@ import cart1 from '@/assets/images/bg/more_vert.png';
 
 
 const DestinationWithdrawalTransfer = () => {
-  const { title, liStyle, container } = useDestinationWithdrawalTransferStyle();
+  const {  liStyle, container } = useDestinationWithdrawalTransferStyle();
   const [showDestinationModal, setShowDestinationModal] = useState<boolean>(false);
   const handleHiddenModal = () => setShowDestinationModal(false);
   return (

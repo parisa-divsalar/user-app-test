@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useDepositStyles } from './useDepositStyles';
 import CustomInput from '@/components/UI/CustomInput';
 import CustomButton from '@/components/UI/CustomButton';
