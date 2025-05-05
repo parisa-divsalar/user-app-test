@@ -52,10 +52,10 @@ export const neverShowAppBar = [
   PrivateRoutes.menu,
   PublicRoutes.accountResult,
   PublicRoutes.uploadDocument,
-  PrivateRoutes.transmissionSourceSwitcher,
+
 ];
 
-export const showBottomNavigation = [PrivateRoutes.dashboard, PrivateRoutes.menu];
+export const showBottomNavigation = [PrivateRoutes.dashboard, PrivateRoutes.menu,  PrivateRoutes.transmissionSourceSwitcher,];
 
 export const widthLayoutRoutes = [
   '/',
