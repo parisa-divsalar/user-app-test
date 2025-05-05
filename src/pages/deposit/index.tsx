@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useDepositStyles } from './useDepositStyles';
+import CustomButton from '@/components/UI/CustomButton';
+import { Typography } from '@mui/material';
 
 const formatNumber = (value: string): string => {
   const numeric = value.replace(/,/g, '');
@@ -21,7 +23,7 @@ const Deposit = () => {
   return (
     <div className={depositContainer}>
       <form className={form}>
-        <label htmlFor='amount'>مبلغ</label>
+        <Typography component='label' color="text.primary" variant='subtitle1' htmlFor='amount'>مبلغ</Typography>
         <div className={formGroup}>
           <input
             id='amount'
@@ -30,9 +32,12 @@ const Deposit = () => {
             placeholder='مبلغ واریزی'
             value={amount}
           />
-          {amount && <span>{amount} تومان</span>}
+          {amount && <Typography component='span' variant='subtitle2' color='text.primary'>{amount} تومان</Typography>}
         </div>
-        <button className={submitButton}>تایید و ادامه</button>
+        <div className={submitButton}>
+
+        <CustomButton className={submitButton} color='secondary' >تایید و ادامه</CustomButton>
+        </div>
       </form>
     </div>
   );

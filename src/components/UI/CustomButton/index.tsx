@@ -20,6 +20,7 @@ interface PrimaryButtonProps {
   children?: any;
   href?: string;
   theme?: 'default';
+  className?:string
 }
 
 const CustomButton = (props: PrimaryButtonProps) => {
@@ -37,6 +38,7 @@ const CustomButton = (props: PrimaryButtonProps) => {
     fullWidth,
     children,
     href,
+    className
   } = props;
 
   return (
@@ -52,6 +54,7 @@ const CustomButton = (props: PrimaryButtonProps) => {
       disabled={disabled || loading}
       href={href}
       {...props}
+      className={className}
     >
       {loading ? <span /> : text || children}
     </Button>

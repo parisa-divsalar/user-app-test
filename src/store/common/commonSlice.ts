@@ -13,7 +13,7 @@ export interface CommonState {
 }
 
 const initialState: CommonState = {
-  theme: 'dark',
+  theme: 'light',
   errors: [],
   snackbar: {
     openSnackbar: false,

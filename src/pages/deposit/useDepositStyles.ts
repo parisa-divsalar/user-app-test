@@ -1,5 +1,4 @@
 import { makeStyles } from '@mui/styles';
-
 export const useDepositStyles = makeStyles(() => ({
   depositContainer: {
     width: '100%',
@@ -49,7 +48,6 @@ export const useDepositStyles = makeStyles(() => ({
     width: '100%',
     padding: '8px 0',
     borderRadius: '10px',
-    color: ' #12284C',
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: 400,
