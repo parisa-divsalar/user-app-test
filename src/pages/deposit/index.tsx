@@ -4,22 +4,10 @@ import CustomInput from '@/components/UI/CustomInput';
 import CustomButton from '@/components/UI/CustomButton';
 import { Typography } from '@mui/material';
 
-const formatNumber = (value: string): string => {
-  const numeric = value.replace(/,/g, '');
-  if (isNaN(Number(numeric))) return '';
-  return Number(numeric).toLocaleString('en-US');
-};
 
 const Deposit = () => {
-  const [amount, setAmount] = useState<string>('');
-  const { depositContainer, form, formInputStyle, submitButton } = useDepositStyles();
+  const { depositContainer, form, submitButton } = useDepositStyles();
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const rawValue = event.target.value;
-    const numericOnly = rawValue.replace(/[^0-9]/g, '');
-    const formatted = formatNumber(numericOnly);
-    setAmount(formatted);
-  };
 
   return (
     <div className={depositContainer}>
@@ -29,12 +17,10 @@ const Deposit = () => {
         </Typography>
         {/*<div className={formGroup}>*/}
           <CustomInput
-            id='amount'
-            onChangeHandler={handleChange}
-            className={formInputStyle}
+              inputMode='numeric'
             placeholder='مبلغ واریزی'
-            value={amount}
           />
+
         {/*  {amount && (*/}
         {/*    <Typography component='span' variant='subtitle2' color='text.primary'>*/}
         {/*      {amount} تومان*/}

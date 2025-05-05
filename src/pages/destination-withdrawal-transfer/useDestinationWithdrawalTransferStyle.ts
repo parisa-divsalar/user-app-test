@@ -1,10 +1,13 @@
 import { makeStyles } from '@mui/styles';
+import {Theme} from "@mui/material";
 
-export const useDestinationWithdrawalTransferStyle = makeStyles(() => ({
+export const useDestinationWithdrawalTransferStyle = makeStyles((theme: Theme) => ({
   container: {
     position: 'relative',
     height: '96%',
     padding: '0 8px',
+    backgroundColor: theme.palette.background.default,
+
   },
   title: {
     color: ' #F5F9FC',
@@ -23,9 +26,10 @@ export const useDestinationWithdrawalTransferStyle = makeStyles(() => ({
     alignItems: 'center',
     alignSelf: 'stretch',
     borderRadius: '10px',
-    background: ' #12284C',
+    backgroundColor: theme.palette.background.paper,
     boxShadow: '0px 0px 10px 0px rgba(13, 68, 107, 0.10)',
     marginTop: '10px',
+    paddingLeft:'30px'
   },
   submitButtonStyle: {
     width: '100%',

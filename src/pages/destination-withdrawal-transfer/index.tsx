@@ -5,6 +5,8 @@ import { Typography } from '@mui/material';
 import { DestinationWithdrawalTransferMoneyModal } from '@/components/transfer-money/DestinationWithdrawalTransferMoneyModal';
 import { useState } from 'react';
 import CustomButton from '@/components/UI/CustomButton';
+import cart1 from '@/assets/images/bg/more_vert.png';
+
 
 const DestinationWithdrawalTransfer = () => {
   const { title, liStyle, container } = useDestinationWithdrawalTransferStyle();
@@ -13,7 +15,7 @@ const DestinationWithdrawalTransfer = () => {
   return (
     <>
       <div className={container}>
-        <p className={title}>مقصد خود را انتخاب کنید</p>
+          <Typography variant='subtitle2' color='text.primary'>روش برداشت دلخواه خود را انتخاب کنید</Typography>
         <ul
           style={{
             margin: '0',
@@ -59,7 +61,8 @@ const DestinationWithdrawalTransfer = () => {
                   ۶۲۱۹ ۸۳۴۵ ۳۴۵۳ ۳۴۵۶
                 </Typography>
               </div>
-              <DotsIcon />
+              {/*<DotsIcon  style={{color:'text.primary'}} />*/}
+                <img src={cart1}/>
             </li>
           ))}
         </ul>

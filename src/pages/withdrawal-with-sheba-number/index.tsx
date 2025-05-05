@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import CustomInput from '@/components/UI/CustomInput';
 import {useState} from "react";
 import {Typography} from "@mui/material";
+import {msisdnValidation} from "@/utils/validation";
 
 
 const WithdrawalWithShebaNumber = () => {
@@ -17,10 +18,16 @@ const WithdrawalWithShebaNumber = () => {
     <div style={{ height: '97%', paddingBottom: '32px', position: 'relative' }}>
         <Typography variant='subtitle1' color='text.primary'>شماره شبا یا کارت مقصد را بنویسید</Typography>
       <CustomInput
-          helperText={msisdnError ? 'شماره شبا وارد شده اشتباه است.' : ''}
           maxLength={msisdn.startsWith('0') ? 27: 27}
+          helperText={msisdnError ? 'شماره شبا وارد شده اشتباه است.' : ''}
+
           placeholder='شماره کارت یا شبا'
           inputMode='numeric'
+          onChangeHandler={(value) => {
+              setMsisdn(value);
+              if (msisdnValidation(value) && value !== '') setMsisdnError(true);
+              else setMsisdnError(false);
+          }}
 
       />
       <div className={buttonStyle}>

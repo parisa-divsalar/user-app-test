@@ -58,7 +58,7 @@ const Transaction = () => {
               <CustomButton color='secondary'
               className={filterButtonStyle}
               >
-                فیلتر
+                فیلت
               </CustomButton>
 
                 <CustomButton  color='secondary'   variant='outlined'

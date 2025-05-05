@@ -49,8 +49,6 @@ const TransferMoney = () => {
       {/*<div className={mount}>*/}
         <CustomInput
           placeholder='مبلغ'
-          className={inputStyle}
-          value={mountValue}
           onChangeHandler={handleInputChange}
           inputMode="numeric"
         />
