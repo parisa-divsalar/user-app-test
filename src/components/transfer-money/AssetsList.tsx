@@ -10,7 +10,6 @@ import s2 from '@/assets/images/bg/Group2.png';
 import s3 from '@/assets/images/bg/Group3.png';
 import s4 from '@/assets/images/bg/Group4.png';
 
-
 export interface AssetsList {
   id: number;
   title: string;
@@ -19,7 +18,7 @@ export interface AssetsList {
   progressValue: number;
   backgroundColor: string;
   maskIcon: ReactNode;
-  img:string;
+  img: string;
 }
 const ASSETS_LIST_MOCK_DATA: AssetsList[] = [
   {
@@ -41,7 +40,6 @@ const ASSETS_LIST_MOCK_DATA: AssetsList[] = [
     backgroundColor: '#f19667',
     maskIcon: <SavingMackIcon />,
     img: s2,
-
   },
   {
     id: 3,
@@ -52,7 +50,6 @@ const ASSETS_LIST_MOCK_DATA: AssetsList[] = [
     backgroundColor: '#767e24',
     maskIcon: <HouseMackIcon />,
     img: s3,
-
   },
   {
     id: 4,
@@ -63,7 +60,6 @@ const ASSETS_LIST_MOCK_DATA: AssetsList[] = [
     backgroundColor: '#0d446b',
     maskIcon: <StockMarketIcon />,
     img: s4,
-
   },
 ];
 

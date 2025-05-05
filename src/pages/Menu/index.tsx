@@ -12,9 +12,9 @@ import { themeSelector } from '@/store/common/commonSelector.ts';
 import ArrowSvg from '@/components/UI/Icons/Arrow';
 import { useNavigate } from 'react-router-dom';
 import { PrivateRoutes } from '@/config/routes.ts';
-import exit from "@/assets/images/icon/exit.svg";
-import ExitDrawer from "@/pages/Menu/Security/ExitDrawer";
-import {useState} from "react";
+import exit from '@/assets/images/icon/exit.svg';
+import ExitDrawer from '@/pages/Menu/Security/ExitDrawer';
+import { useState } from 'react';
 
 const MenuPage = () => {
   const classes = useStyles();
@@ -23,7 +23,6 @@ const MenuPage = () => {
   const dispatch = useDispatch();
   const theme = useSelector(themeSelector);
   const [openExitDrawer, setOpenExitDrawer] = useState<boolean>(false);
-
 
   const { name = '-- ', mobile = '0912345678' } = profile || {};
 
@@ -84,7 +83,6 @@ const MenuPage = () => {
 
               <ArrowSvg />
             </Stack>
-
           </CardActionArea>
         ))}
         <CardActionArea className={classes.cardActionArea} onClick={() => setOpenExitDrawer(true)}>

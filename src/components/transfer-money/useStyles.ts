@@ -1,7 +1,6 @@
 import { makeStyles } from '@mui/styles';
 import { Theme } from '@mui/material';
 
-
 const useStyles = makeStyles((theme: Theme) => ({
   transferCardStyle: {
     color: '#F5F9FC',
@@ -14,7 +13,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     overflow: 'hidden',
     marginBottom: '32px',
     backgroundColor: theme.palette.primary.light,
-
   },
   cardInfo: {
     display: 'flex',
@@ -49,12 +47,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'space-between',
     padding: '8.5px 16px',
     backgroundColor: theme.palette.background.default,
-
-
   },
   amountFontStyle: {
     fontSize: '14px',
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   assetsList: {
     gap: '16px',
@@ -76,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: '100%',
   },
   assetTitle: {
-    marginTop:'1rem',
+    marginTop: '1rem',
     fontWeight: '550',
     fontSize: '18px',
     color: 'white',

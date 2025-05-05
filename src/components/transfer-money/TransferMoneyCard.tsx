@@ -1,7 +1,7 @@
 import { LineCardIcon } from '../UI/Icons/transferMoney/LineCardIcon';
 import { TransformMoneyCardIcon } from '../UI/Icons/transferMoney/TransformMoneyCardIcon';
 import useStyles from './useStyles';
-import {Typography} from "@mui/material";
+import { Typography } from '@mui/material';
 
 export const TransferMoneyCard = () => {
   const { transferCardStyle, cardInfo, banksCardTitle, cardNo, inventory, amountFontStyle } =
@@ -17,8 +17,10 @@ export const TransferMoneyCard = () => {
         <LineCardIcon />
       </div>
       <div className={inventory}>
-        <Typography   color='text.primary' className={amountFontStyle}>پول نقد</Typography>
-        <Typography  color='text.primary'>۵۸۸,۴۸۶,۳۵۰,۲۳۶ ت</Typography>
+        <Typography color='text.primary' className={amountFontStyle}>
+          پول نقد
+        </Typography>
+        <Typography color='text.primary'>۵۸۸,۴۸۶,۳۵۰,۲۳۶ ت</Typography>
       </div>
     </div>
   );
