@@ -310,7 +310,6 @@ export const getDesignTokens: any = (darkMode: 'dark' | 'light') => {
               padding: '0 1rem',
               height: '2.8rem !important',
               fontSize: '1rem !important',
-
               '&::placeholder': {
                 color: darkMode === 'dark' ? '#F5F9FCCC' : '#0D446BCC',
               },

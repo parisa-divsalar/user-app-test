@@ -30,7 +30,7 @@ export const AssetItem: FC<AssetsList> = ({
         alt=''
         width='120'
         height={105}
-        style={{ display: 'flex', marginRight: '50%' }}
+        style={{ display: 'flex', marginRight: '50%',marginTop:'20px',position:'relative',bottom:'0',left:'0' }}
       />
     </div>
   );

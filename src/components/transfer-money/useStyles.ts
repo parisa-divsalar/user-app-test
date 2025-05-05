@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: '12px',
     overflow: 'hidden',
     marginBottom: '32px',
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.background.default,
   },
   cardInfo: {
     display: 'flex',
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'grid',
     padding: '0',
     gridTemplateColumns: 'repeat(2, 1fr)',
-    height: '100%',
+ 
   },
   assetItem: {
     display: 'flex',
