@@ -51,9 +51,9 @@ const AddToHomeScreen: FunctionComponent<AddToHomeScreenProps> = (props) => {
 
           <Stack direction='row' className={classes.row} gap={1} mt={3}>
             <img src={add} alt='' />
-            <Typography color='text.primary' justifyItems='right' variant='' style={{fontSize:'12px'}} fontWeight='normal'>
+            <Typography color='text.primary' justifyItems='right' style={{fontSize:'12px'}} fontWeight='normal'>
               دکمه
-              <Typography component='span' justifyItems='right' direction='rtl' style={{fontSize:'13px'}}  color='text.primary' px={0.2}>
+              <Typography component='span' justifyItems='right'  style={{fontSize:'13px'}}  color='text.primary' px={0.2}>
                 Add to home screen
               </Typography>
               را انتخاب کنید.
