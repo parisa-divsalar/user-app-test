@@ -36,7 +36,7 @@ const useTransactionStyles = makeStyles((theme: Theme) => ({
   },
 
   filterTransactionModelContainer: {
-    backgroundColor: 'rgba(245, 249, 252, 0.3)',
+    backgroundColor: 'rgba(55,65,81,0.45)',
     position: 'absolute',
     width: '100%',
     height: '100%',

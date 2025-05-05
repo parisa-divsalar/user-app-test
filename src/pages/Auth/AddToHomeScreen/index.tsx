@@ -40,31 +40,31 @@ const AddToHomeScreen: FunctionComponent<AddToHomeScreenProps> = (props) => {
 
           <Stack direction='row' className={classes.row} mt={6} gap={1}>
             <img src={share} alt='' />
-            <Typography color='text.primary' variant='subtitle1' fontWeight='normal'>
+            <Typography color='text.primary' style={{fontSize:'13px'}} fontWeight='normal'>
               در نوار پایین روی دکمه
-              <Typography component='span' color='text.primary' px={0.2}>
+              <Typography component='span' color='text.primary' style={{fontSize:'13px'}} px={0.2}>
                 Share
               </Typography>
               بزنید.
             </Typography>
           </Stack>
 
-          <Stack direction='row' className={classes.row} gap={1} mt={2}>
+          <Stack direction='row' className={classes.row} gap={1} mt={3}>
             <img src={add} alt='' />
-            <Typography color='text.primary' variant='subtitle1' fontWeight='normal'>
+            <Typography color='text.primary' justifyItems='right' variant='' style={{fontSize:'12px'}} fontWeight='normal'>
               دکمه
-              <Typography component='span' color='text.primary' px={0.5}>
+              <Typography component='span' justifyItems='right' direction='rtl' style={{fontSize:'13px'}}  color='text.primary' px={0.2}>
                 Add to home screen
               </Typography>
               را انتخاب کنید.
             </Typography>
           </Stack>
 
-          <Stack direction='row' className={classes.row} gap={1} mt={2}>
+          <Stack direction='row' className={classes.row} gap={1} mt={3}>
             <img src={add} alt='' />
-            <Typography color='text.primary' variant='subtitle1' fontWeight='normal'>
+            <Typography color='text.primary' style={{fontSize:'13px'}} fontWeight='normal'>
               در مرحله آخر روی
-              <Typography component='span' px={0.5}>
+              <Typography component='span' style={{fontSize:'12px'}} px={0.5}>
                 Add
               </Typography>{' '}
               بزنید.
