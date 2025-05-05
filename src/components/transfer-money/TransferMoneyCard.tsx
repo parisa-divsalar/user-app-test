@@ -1,7 +1,7 @@
 import { LineCardIcon } from '../UI/Icons/transferMoney/LineCardIcon';
 import { TransformMoneyCardIcon } from '../UI/Icons/transferMoney/TransformMoneyCardIcon';
 import useStyles from './useStyles';
-import { Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
 import {useSelector} from "react-redux";
 import {themeSelector} from "@/store/common/commonSelector";
@@ -23,12 +23,12 @@ export const TransferMoneyCard = () => {
         </div>
         <LineCardIcon />
       </div>
-      <stack className={inventory}>
+      <Stack className={inventory}>
         <Typography color='text.primary'>
           پول نقد
         </Typography>
         <Typography color='text.primary'>۵۸۸,۴۸۶,۳۵۰,۲۳۶ ت</Typography>
-      </stack>
+      </Stack>
     </div>
   );
 };
