@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     letterSpacing: '-0.5px',
   },
   cardNo: {
-    color: '#FDFDFD',
     textAlign: 'right',
     fontFamily: 'Abar Mid',
     fontSize: '16px',
@@ -46,11 +45,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: '8.5px 16px',
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.secondary.dark,
+    color: theme.palette.text.primary,
   },
   amountFontStyle: {
     fontSize: '14px',
     fontWeight: 'bold',
+    color: theme.palette.text.primary,
+
   },
   assetsList: {
     gap: '16px',

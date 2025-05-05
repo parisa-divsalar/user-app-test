@@ -82,7 +82,7 @@ const lightThemePalette = {
   secondary: {
     main: '#1B76A8',
     light: '#4ca7d8',
-    dark: '#114b6b',
+    dark: '#E1E0CF',
     A400: '#2283AD',
     contrastText: '#000',
   },

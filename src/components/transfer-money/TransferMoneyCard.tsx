@@ -3,8 +3,15 @@ import { TransformMoneyCardIcon } from '../UI/Icons/transferMoney/TransformMoney
 import useStyles from './useStyles';
 import { Typography } from '@mui/material';
 
+import {useSelector} from "react-redux";
+import {themeSelector} from "@/store/common/commonSelector";
+
 export const TransferMoneyCard = () => {
-  const { transferCardStyle, cardInfo, banksCardTitle, cardNo, inventory, amountFontStyle } =
+    const classes = useStyles();
+
+    const theme = useSelector(themeSelector);
+
+    const { transferCardStyle, cardInfo, banksCardTitle, cardNo, inventory, amountFontStyle } =
     useStyles();
   return (
     <div className={transferCardStyle}>
@@ -16,12 +23,14 @@ export const TransferMoneyCard = () => {
         </div>
         <LineCardIcon />
       </div>
-      <div className={inventory}>
-        <Typography color='text.primary' className={amountFontStyle}>
+      <stack
+           className={inventory}
+      >
+        <Typography color='text.primary'>
           پول نقد
         </Typography>
         <Typography color='text.primary'>۵۸۸,۴۸۶,۳۵۰,۲۳۶ ت</Typography>
-      </div>
+      </stack>
     </div>
   );
 };
