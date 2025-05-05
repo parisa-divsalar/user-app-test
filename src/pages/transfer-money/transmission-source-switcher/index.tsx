@@ -3,8 +3,7 @@ import useStyles from '../useStyles';
 import { AssetsList } from '@/components/transfer-money/AssetsList';
 
 const TransmissionSourceSwitcher = () => {
-  const { transmissionSourceSwitcherContainer, transmissionBackButton, container, titleText } =
-    useStyles();
+  const { transmissionSourceSwitcherContainer, container, titleText } = useStyles();
   return (
     <div className={transmissionSourceSwitcherContainer}>
       {/*<button className={transmissionBackButton}>*/}

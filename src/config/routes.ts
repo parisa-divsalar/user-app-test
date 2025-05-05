@@ -38,6 +38,7 @@ export const PrivateRoutes = {
   transmissionSourceSwitcher: '/transferMoney/transmissionSourceSwitcher',
   withdrawalWithShebaNumber: '/withdrawal-with-sheba-number',
   destinationWithdrawalTransfer: '/destination-withdrawal-transfer',
+  deposit: '/deposit',
 };
 
 export const publicRouteList = Object.values(PublicRoutes);
@@ -52,10 +53,15 @@ export const neverShowAppBar = [
   PrivateRoutes.menu,
   PublicRoutes.accountResult,
   PublicRoutes.uploadDocument,
-
+  PrivateRoutes.deposit,
 ];
 
-export const showBottomNavigation = [PrivateRoutes.dashboard, PrivateRoutes.menu,  PrivateRoutes.transmissionSourceSwitcher,];
+export const showBottomNavigation = [
+  PrivateRoutes.dashboard,
+  PrivateRoutes.menu,
+  PrivateRoutes.transmissionSourceSwitcher,
+  PrivateRoutes.deposit,
+];
 
 export const widthLayoutRoutes = [
   '/',

@@ -58,7 +58,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'grid',
     padding: '0',
     gridTemplateColumns: 'repeat(2, 1fr)',
- 
   },
   assetItem: {
     display: 'flex',

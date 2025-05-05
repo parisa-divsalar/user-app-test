@@ -75,7 +75,7 @@ const BottomTabNavigation = () => {
 
       {/**/}
       <BottomNavigationAction
-        disabled
+        href='/deposit'
         classes={{ root: classes.root, selected: classes.selected }}
         label='واریز'
         icon={<DepositSvg color={getSvgColor('/deposit')} />}
