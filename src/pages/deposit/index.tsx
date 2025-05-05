@@ -12,7 +12,7 @@ const formatNumber = (value: string): string => {
 
 const Deposit = () => {
   const [amount, setAmount] = useState<string>('');
-  const { depositContainer, form, formInputStyle, submitButton, formGroup } = useDepositStyles();
+  const { depositContainer, form, formInputStyle, submitButton } = useDepositStyles();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const rawValue = event.target.value;
@@ -30,7 +30,7 @@ const Deposit = () => {
         {/*<div className={formGroup}>*/}
           <CustomInput
             id='amount'
-            onChange={handleChange}
+            onChangeHandler={handleChange}
             className={formInputStyle}
             placeholder='مبلغ واریزی'
             value={amount}

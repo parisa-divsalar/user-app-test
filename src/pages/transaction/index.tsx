@@ -24,6 +24,7 @@ const Transaction = () => {
     filterTransactionModelContainer,
     filterTransactionModel,
     lineButton,
+    cancelButton,filterButtonStyle
   } = useTransactionStyles();
   const [showFilterModal, setShowFilterModal] = useState(false);
 
@@ -50,42 +51,20 @@ const Transaction = () => {
           <div className={filterTransactionModel} onClick={(event) => event.stopPropagation()}>
             <span className={lineButton}></span>
             <span className={filterTitle}>فیلتر</span>
-            <DropDown icon={<FlashDownIcon />} style={{color:'text.primary'}} title='نوع معامله' />
+            <DropDown icon={<FlashDownIcon />} title='نوع معامله' />
             <DropDown icon={<TimeIcon />} title='تاریخ' />
             <DropDown icon={<FlashDownIcon />} title='نوع تراکنش' />
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', width: '100%', marginTop:'3px' }}>
               <CustomButton color='secondary'
-                style={{
-                  display: 'flex',
-                  height: '36px',
-                  padding: '8px 6px',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  gap: '2px',
-                  flex: '1 0 0',
-                  border: 'none',
-                  outline: 'none',
-                  borderRadius: '10px',
-                  cursor: 'pointer',
-                }}
+              className={filterButtonStyle}
               >
                 فیلتر
               </CustomButton>
 
                 <CustomButton  color='secondary'   variant='outlined'
                 onClick={() => setShowFilterModal(false)}
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  height: '36px',
-                  padding: '8px 6px',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  gap: '2px',
-                  flex: '1 0 0',
-
-                  cursor: 'pointer',
-                }}
+                className={cancelButton}
+           
               >
                 انصراف
                 </CustomButton>

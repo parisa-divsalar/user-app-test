@@ -14,7 +14,6 @@ const TransferMoney = () => {
     transferFrom,
     transferFromButton,
     submitButtonStyle,
-    mount,
     inputStyle,
   } = useStyles();
 

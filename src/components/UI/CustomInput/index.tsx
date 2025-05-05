@@ -30,6 +30,7 @@ interface CustomInputProps {
   ignoreNumeric?: boolean;
   readOnly?: boolean;
   className?:string,
+  id?:string
 }
 
 const CustomInput: FunctionComponent<CustomInputProps> = (props) => {
@@ -54,6 +55,7 @@ const CustomInput: FunctionComponent<CustomInputProps> = (props) => {
     autoFocus = false,
     ignoreNumeric = false,
     onChangeHandler,
+    id
   } = props;
 
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
@@ -71,7 +73,7 @@ const CustomInput: FunctionComponent<CustomInputProps> = (props) => {
 
   return (
     <TextField
-      id='outlined-basic'
+      id={id?id:'outlined-basic'}
       variant={variant}
       placeholder={placeholder}
       fullWidth

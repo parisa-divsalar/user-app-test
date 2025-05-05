@@ -3,11 +3,10 @@ import useStyles from '../useStyles';
 import { AssetsList } from '@/components/transfer-money/AssetsList';
 
 const TransmissionSourceSwitcher = () => {
-  const { transmissionSourceSwitcherContainer, container, titleText } = useStyles();
+  const { transmissionSourceSwitcherContainer, container } = useStyles();
   return (
     <div className={transmissionSourceSwitcherContainer}>
       <div className={container}>
-        {/*<h1 className={titleText}>تغییر مبدا انتقال</h1>*/}
         <TransferMoneyCard />
         <AssetsList />
       </div>

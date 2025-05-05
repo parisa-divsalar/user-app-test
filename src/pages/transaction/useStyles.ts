@@ -93,6 +93,31 @@ const useTransactionStyles = makeStyles((theme: Theme) => ({
     fontWeight: 400,
     lineHeight: 'normal',
   },
+  cancelButton:{
+           width: '100%',
+                      display: 'flex',
+                      height: '36px',
+                      padding: '8px 6px',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      gap: '2px',
+                      flex: '1 0 0',
+    
+                      cursor: 'pointer',
+  },
+  filterButtonStyle:{
+            display: 'flex',
+                      height: '36px',
+                      padding: '8px 6px',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      gap: '2px',
+                      flex: '1 0 0',
+                      border: 'none',
+                      outline: 'none',
+                      borderRadius: '10px',
+                      cursor: 'pointer',
+  }
 }));
 
 export default useTransactionStyles;
