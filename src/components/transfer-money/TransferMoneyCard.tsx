@@ -18,14 +18,15 @@ export const TransferMoneyCard = () => {
       <Stack
         direction='row'
         justifyContent='space-between'
-        margin='5px 0'
+        padding='13px 10px '
         fontSize='14px'
         fontWeight='600'
+        bgcolor='primary.light'
       >
-        <Typography color='text.primary' variant='subtitle2' component='span'>
+        <Typography color='text.primary' variant='subtitle1' component='span' paddingRight='7px'>
           پول نقد
         </Typography>
-        <Typography color='text.primary' variant='subtitle2' component='span'>
+        <Typography color='text.primary' variant='subtitle1' component='span' paddingLeft='7px'>
           ۵۸۸,۴۸۶,۳۵۰,۲۳۶ ت
         </Typography>
       </Stack>

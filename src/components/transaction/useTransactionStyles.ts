@@ -27,7 +27,7 @@ const useTransactionStyles = makeStyles(() => ({
     fontWeight: 600,
     lineHeight: 'normal',
     padding: '16px 0',
-    borderBottom: '1px solid #626F86',
+    borderBottom: '1px solid #DCDFE4',
     listStyleType: 'none',
   },
   transactionIcon: {

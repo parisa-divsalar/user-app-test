@@ -13,7 +13,7 @@ export const TransactionItem = () => {
         <Typography color='text.primary' style={{ margin: '0', padding: '0', fontWeight: 'bold' }}>
           واریز به حساب{' '}
         </Typography>
-        <Typography color='text.primary' style={{ fontSize: '12px' }} className={date}>
+        <Typography color='text.primary' style={{ fontSize: '12px' ,paddingTop:'8px'}} className={date}>
           سه‌شنبه، ۱۴ اردیبهشت ۱۴۰۲ &#x2022; ۲۲:۳۵
         </Typography>
       </div>

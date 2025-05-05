@@ -1,13 +1,18 @@
 import { makeStyles } from '@mui/styles';
+import {Theme} from "@mui/material";
 
-const useTransactionStyles = makeStyles(() => ({
+
+const useTransactionStyles = makeStyles((theme: Theme) => ({
   transActionContainer: {
     margin: '0 10px',
+
+    '& > img': {
+      width: '100%',
+
+    },
   },
   diagram: {
     width: '100%',
-    minWidth: '320px',
-    maxHeight: '520px',
     objectFit: 'cover',
   },
   filterGroup: {
@@ -47,7 +52,8 @@ const useTransactionStyles = makeStyles(() => ({
     padding: '10px 15px',
     gap: '8px',
     borderRadius: ' 20px 20px  0 0',
-    backgroundColor: '#172B4D',
+    backgroundColor: theme.palette.background.default,
+
     position: 'absolute',
     bottom: '0',
     zIndex: 100,
@@ -59,7 +65,6 @@ const useTransactionStyles = makeStyles(() => ({
     backgroundColor: '#758195',
   },
   filterTitle: {
-    color: '#F5F9FC',
     textAlign: 'center',
     textOverflow: 'ellipsis',
     fontFamily: '"Abar Mid"',
@@ -79,7 +84,8 @@ const useTransactionStyles = makeStyles(() => ({
     border: '1px solid #626F86',
     width: '100%',
     overflow: 'hidden',
-    color: 'rgba(245, 249, 252, 0.80)',
+    color: theme.palette.text.primary,
+
     textOverflow: 'ellipsis',
     fontFamily: '"Abar Mid"',
     fontSize: '12px',
