@@ -4,6 +4,7 @@ export const useDestinationWithdrawalTransferStyle = makeStyles(() => ({
   container: {
     position: 'relative',
     height: '96%',
+    padding:'0 8px'
   },
   title: {
     color: ' #F5F9FC',
